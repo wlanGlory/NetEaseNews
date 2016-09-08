@@ -1,4 +1,4 @@
-package com.wang.neteasenews.model;
+package com.wang.neteasenews.ui.fragment;
 
 /**
  * Created by dllo on 16/9/8.
