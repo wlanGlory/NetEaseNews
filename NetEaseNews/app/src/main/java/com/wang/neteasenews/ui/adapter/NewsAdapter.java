@@ -18,11 +18,11 @@ public class NewsAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return fragments.get(position);
+        return  fragments.size() == 0 ? null : fragments.get(position);
     }
 
     @Override
     public int getCount() {
-        return fragments.size();
+        return fragments.size() == 0 ? 0 :fragments.size();
     }
 }

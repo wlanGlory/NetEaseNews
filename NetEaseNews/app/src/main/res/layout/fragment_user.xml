@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="#e65050"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/user_setting_tv"
+                android:drawableLeft="@mipmap/setting"
+                android:paddingLeft="320dp"
+                android:text="设置"
+                android:textColor="#fff"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+
+                android:id="@+id/user_picture_img"
+                android:layout_width="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="80dp"
+                android:src="@mipmap/user_login"/>
+            <TextView
+                android:id="@+id/user_login_tv"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="立即登录"
+                android:textColor="#fff"
+                android:textSize="30sp"/>
+            <TextView
+                android:id="@+id/user_gift_tv"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#dfcd42"
+                android:text="赢积分 抢大礼!"/>
+        </LinearLayout>
+        <!--中间四个布局-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1.5">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:drawableTop="@mipmap/read"
+                    android:text="阅读"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <View
+                    android:layout_width="1dp"
+                    android:background="#d6cece"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:drawableTop="@mipmap/collection"
+                    android:text="收藏"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <View
+                    android:layout_width="1dp"
+                    android:background="#d6cece"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:drawableTop="@mipmap/comment"
+                    android:text="跟帖"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <View
+                    android:layout_width="1dp"
+                    android:background="#d6cece"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <Button
+                    android:layout_marginTop="10dp"
+                    android:drawableTop="@mipmap/money"
+                    android:text="金币"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:background="#d6cece"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

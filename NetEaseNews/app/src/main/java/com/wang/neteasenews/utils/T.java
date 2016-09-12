@@ -2,7 +2,7 @@ package com.wang.neteasenews.utils;
 
 import android.widget.Toast;
 
-import com.wang.neteasenews.ui.app.MyApp;
+import com.wang.neteasenews.ui.app.NetEaseNewsApp;
 
 /**
  * Created by dllo on 16/9/8.
@@ -17,12 +17,12 @@ public final class T {
     private static boolean isDebug = true;
     public static void shortMsg(String msg){
         if(isDebug){
-           Toast.makeText(MyApp.getContext(),msg,Toast.LENGTH_SHORT).show();
+           Toast.makeText(NetEaseNewsApp.getContext(),msg,Toast.LENGTH_SHORT).show();
         }
     }
     public static void longMsg(String msg){
         if(isDebug){
-            Toast.makeText(MyApp.getContext(),msg,Toast.LENGTH_LONG).show();
+            Toast.makeText(NetEaseNewsApp.getContext(),msg,Toast.LENGTH_LONG).show();
         }
     }
 

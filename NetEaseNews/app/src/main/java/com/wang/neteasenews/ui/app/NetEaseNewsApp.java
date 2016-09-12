@@ -9,7 +9,7 @@ import android.content.Context;
  * Context 环境
  * 此App需要注册
  */
-public class MyApp extends Application{
+public class NetEaseNewsApp extends Application{
     private static Context context;
 
     @Override
