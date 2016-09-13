@@ -2,6 +2,7 @@ package com.wang.neteasenews.ui.adapter;
 
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.LiveBean;
 
 import java.util.List;
@@ -46,11 +49,35 @@ public class LiveAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        LiveViewHolder holder = null;
+        if(convertView == null){
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_live,parent,false);
+            holder = new LiveViewHolder(convertView);
+            convertView.setTag(holder);
+        }else {
+            holder = (LiveViewHolder) convertView.getTag();
+        }
+
+        LiveBean.T1462958418713Bean bean = datas.get(position);
+        if(bean != null){
+            holder.titleTv.setText(bean.getTitle());
+
+            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
+            holder.sourceTv.setText(bean.getSource());
+        }
+        return convertView;
     }
 
 
     private class LiveViewHolder{
+        TextView titleTv;
+        ImageView imgIv;
+        TextView sourceTv;
 
+        public LiveViewHolder(View view) {
+            titleTv = (TextView) view.findViewById(R.id.live_title);
+            imgIv = (ImageView) view.findViewById(R.id.live_img);
+            sourceTv = (TextView) view.findViewById(R.id.live_source_tv);
+        }
     }
 }
