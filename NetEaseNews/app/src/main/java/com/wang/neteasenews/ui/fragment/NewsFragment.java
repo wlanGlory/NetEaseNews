@@ -30,7 +30,14 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private List<Fragment> datas;
     private ImageView newsPopWindow;
 
-
+    public static NewsFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        NewsFragment fragment = new NewsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     protected int setLayout() {
@@ -61,7 +68,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 //        });
         datas = new ArrayList<>();
         for (int i = 0; i <11 ; i++) {
-            datas.add(new VideoFragment());
+            datas.add(VideoFragment.newInstance());
         }
 
     }

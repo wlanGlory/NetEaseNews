@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity  {
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         datas = new ArrayList<>();
-        datas.add(new NewsFragment());
-        ft.replace(R.id.main_fl,new NewsFragment());
+        datas.add(NewsFragment.newInstance());
+        ft.replace(R.id.main_fl,NewsFragment.newInstance());
         ft.commit();
         initViews();
 
@@ -73,22 +73,22 @@ public class MainActivity extends AppCompatActivity  {
               fm = getSupportFragmentManager();
               ft = fm.beginTransaction();
               datas = new ArrayList<>();
-              datas.add(new NewsFragment());
-              datas.add(new LiveFragment());
-              datas.add(new TopicFragment());
-              datas.add(new UserFragment());
+              datas.add(NewsFragment.newInstance());
+              datas.add(LiveFragment.newInstance());
+              datas.add(TopicFragment.newInstance());
+              datas.add(UserFragment.newInstance());
               switch (checkedId){
                       case R.id.news_rb:
-                          ft.replace(R.id.main_fl,new NewsFragment());
+                          ft.replace(R.id.main_fl,NewsFragment.newInstance());
                           break;
                       case R.id.live_rb:
-                          ft.replace(R.id.main_fl,new LiveFragment());
+                          ft.replace(R.id.main_fl,LiveFragment.newInstance());
                           break;
                       case R.id.topic_rb:
-                          ft.replace(R.id.main_fl,new TopicFragment());
+                          ft.replace(R.id.main_fl,TopicFragment.newInstance());
                           break;
                       case R.id.user_rb:
-                          ft.replace(R.id.main_fl,new UserFragment());
+                          ft.replace(R.id.main_fl,UserFragment.newInstance());
                           break;
                       default:
                           break;

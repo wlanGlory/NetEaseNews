@@ -17,31 +17,31 @@ import java.util.List;
  * Created by dllo on 16/9/12.
  */
 public class LiveAdapter extends BaseAdapter{
-    private List<LiveBean> datas;
+    private List<LiveBean.T1462958418713Bean> datas;
     private Context context;
 
     public LiveAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<LiveBean> datas) {
+    public void setDatas(List<LiveBean.T1462958418713Bean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return datas==null?0:datas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return datas==null?null:datas.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -50,4 +50,7 @@ public class LiveAdapter extends BaseAdapter{
     }
 
 
+    private class LiveViewHolder{
+
+    }
 }

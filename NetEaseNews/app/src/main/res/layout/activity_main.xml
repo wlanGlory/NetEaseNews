@@ -55,6 +55,7 @@
                 android:button="@null"
                 android:drawableTop="@drawable/selector_live"
                 android:background="@null"
+
                 android:gravity="center"
                 android:text="直播" />
 
