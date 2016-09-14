@@ -13,7 +13,7 @@ import com.wang.neteasenews.utils.T;
  * Created by dllo on 16/9/8.
  * Activity的基类
  */
-public abstract class AbsBaseActivity extends AppCompatActivity{
+public abstract class AbsBaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public abstract class AbsBaseActivity extends AppCompatActivity{
 
     /**
      * 设置布局文件
+     *
      * @return
      */
     protected abstract int setLayout();
@@ -42,24 +43,27 @@ public abstract class AbsBaseActivity extends AppCompatActivity{
     /**
      * 简化findViewById
      */
-    protected <T extends View> T byView(int resId){
+    protected <T extends View> T byView(int resId) {
         return (T) findViewById(resId);
     }
+
     /**
      * 跳转不传值
      */
-    protected void goTo(Context from,Class<? extends AbsBaseActivity> to){
-        startActivity(new Intent(from,to));
+    protected void goTo(Context from, Class<? extends AbsBaseActivity> to) {
+        startActivity(new Intent(from, to));
     }
+
     /**
      * 跳转传值
      */
-    protected void goTo(Context from,Class<? extends AbsBaseActivity> to,Bundle extras){
-        Intent intent = new Intent(from,to);
+    protected void goTo(Context from, Class<? extends AbsBaseActivity> to, Bundle extras) {
+        Intent intent = new Intent(from, to);
         intent.putExtras(extras);
         startActivity(intent);
 
     }
+
     /**
      * Activity结束动画
      */

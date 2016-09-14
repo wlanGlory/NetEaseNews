@@ -24,13 +24,13 @@ import com.wang.neteasenews.ui.fragment.UserFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private RadioGroup mainRg;
     private List<Fragment> datas;
     private NewsAdapter newsAdapter;
-    private RadioButton newsRb,liveRb,topicRb,userRb;
+    private RadioButton newsRb, liveRb, topicRb, userRb;
     private TextView mainTv;
     private FragmentManager fm;
     private FragmentTransaction ft;
@@ -43,15 +43,9 @@ public class MainActivity extends AppCompatActivity  {
         ft = fm.beginTransaction();
         datas = new ArrayList<>();
         datas.add(NewsFragment.newInstance());
-        ft.replace(R.id.main_fl,NewsFragment.newInstance());
+        ft.replace(R.id.main_fl, NewsFragment.newInstance());
         ft.commit();
         initViews();
-
-
-
-
-
-
 
 
     }
@@ -67,78 +61,42 @@ public class MainActivity extends AppCompatActivity  {
 
 
         mainRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-          @Override
-          public void onCheckedChanged(RadioGroup group, int checkedId) {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-              fm = getSupportFragmentManager();
-              ft = fm.beginTransaction();
-              datas = new ArrayList<>();
-              datas.add(NewsFragment.newInstance());
-              datas.add(LiveFragment.newInstance());
-              datas.add(TopicFragment.newInstance());
-              datas.add(UserFragment.newInstance());
-              switch (checkedId){
-                      case R.id.news_rb:
-                          ft.replace(R.id.main_fl,NewsFragment.newInstance());
-                          break;
-                      case R.id.live_rb:
-                          ft.replace(R.id.main_fl,LiveFragment.newInstance());
-                          break;
-                      case R.id.topic_rb:
-                          ft.replace(R.id.main_fl,TopicFragment.newInstance());
-                          break;
-                      case R.id.user_rb:
-                          ft.replace(R.id.main_fl,UserFragment.newInstance());
-                          break;
-                      default:
-                          break;
-                  }
-                  ft.commit();
-              }
+                fm = getSupportFragmentManager();
+                ft = fm.beginTransaction();
+                datas = new ArrayList<>();
+                datas.add(NewsFragment.newInstance());
+                datas.add(LiveFragment.newInstance());
+                datas.add(TopicFragment.newInstance());
+                datas.add(UserFragment.newInstance());
+                switch (checkedId) {
+                    case R.id.news_rb:
+                        ft.replace(R.id.main_fl, NewsFragment.newInstance());
+                        break;
+                    case R.id.live_rb:
+                        ft.replace(R.id.main_fl, LiveFragment.newInstance());
+                        break;
+                    case R.id.topic_rb:
+                        ft.replace(R.id.main_fl, TopicFragment.newInstance());
+                        break;
+                    case R.id.user_rb:
+                        ft.replace(R.id.main_fl, UserFragment.newInstance());
+                        break;
+                    default:
+                        break;
+                }
+                ft.commit();
+            }
 
-      });
-
+        });
 
 
     }
 
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //        viewPager = (ViewPager) findViewById(R.id.vp);

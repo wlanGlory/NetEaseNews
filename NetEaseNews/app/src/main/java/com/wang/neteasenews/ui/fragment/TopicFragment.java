@@ -14,21 +14,23 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/8.
+ * 话题界面
  */
-public class TopicFragment extends AbsBaseFragment{
+public class TopicFragment extends AbsBaseFragment {
     private TabLayout topicTl;
     private ViewPager topicVp;
     private List<Fragment> datas;
     private TopicAdapter topicAdapter;
 
     public static TopicFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         TopicFragment fragment = new TopicFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_topic;
@@ -44,14 +46,12 @@ public class TopicFragment extends AbsBaseFragment{
         datas.add(QuestionFragment.newInstance());
 
 
-
-
     }
 
     @Override
     protected void initDatas() {
         FragmentManager fm = getChildFragmentManager();
-        topicAdapter = new TopicAdapter(fm,datas);
+        topicAdapter = new TopicAdapter(fm, datas);
         topicVp.setAdapter(topicAdapter);
         topicTl.setupWithViewPager(topicVp);
         topicTl.getTabAt(0).setText("问吧");

@@ -1,34 +1,32 @@
 package com.wang.neteasenews.ui.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
-import com.wang.neteasenews.model.bean.LiveBean;
+import com.wang.neteasenews.model.bean.ChosenBean;
 
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/12.
- * 直播界面适配器
+ * Created by dllo on 16/9/14.
+ * 精选适配器类
  */
-public class LiveAdapter extends BaseAdapter {
-    private List<LiveBean.T1462958418713Bean> datas;
+public class ChosenAdapter extends BaseAdapter {
     private Context context;
+    private List<ChosenBean.T1467284926140Bean> datas;
 
-    public LiveAdapter(Context context) {
+    public ChosenAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<LiveBean.T1462958418713Bean> datas) {
+    public void setDatas(List<ChosenBean.T1467284926140Bean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
@@ -50,35 +48,30 @@ public class LiveAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LiveViewHolder holder = null;
+        ChosenViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_live, parent, false);
-            holder = new LiveViewHolder(convertView);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
+            holder = new ChosenViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder = (LiveViewHolder) convertView.getTag();
+            holder = (ChosenViewHolder) convertView.getTag();
         }
-
-        LiveBean.T1462958418713Bean bean = datas.get(position);
+        ChosenBean.T1467284926140Bean bean = datas.get(position);
         if (bean != null) {
             holder.titleTv.setText(bean.getTitle());
-
             Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-            holder.sourceTv.setText(bean.getSource());
+
         }
         return convertView;
     }
 
-
-    private class LiveViewHolder {
+    private class ChosenViewHolder {
         TextView titleTv;
         ImageView imgIv;
-        TextView sourceTv;
 
-        public LiveViewHolder(View view) {
-            titleTv = (TextView) view.findViewById(R.id.live_title);
-            imgIv = (ImageView) view.findViewById(R.id.live_img);
-            sourceTv = (TextView) view.findViewById(R.id.live_source_tv);
+        public ChosenViewHolder(View view) {
+            titleTv = (TextView) view.findViewById(R.id.topline_title);
+            imgIv = (ImageView) view.findViewById(R.id.topline_img);
         }
     }
 }

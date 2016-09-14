@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 新闻界面PopWindow 适配器
  */
 public class PopWindowAdapter extends RecyclerView.Adapter<PopWindowAdapter.PopViewHolder>{
     private Context context;

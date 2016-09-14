@@ -16,7 +16,7 @@ import com.wang.neteasenews.utils.T;
  * Created by dllo on 16/9/8.
  * Fragment的基类
  */
-public abstract class AbsBaseFragment extends Fragment{
+public abstract class AbsBaseFragment extends Fragment {
     protected Context context;
 
     @Override
@@ -29,7 +29,7 @@ public abstract class AbsBaseFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // 绑定布局
-        return inflater.inflate(setLayout(),container,false);
+        return inflater.inflate(setLayout(), container, false);
     }
 
     @Override
@@ -56,12 +56,12 @@ public abstract class AbsBaseFragment extends Fragment{
     /**
      * 简化findViewById
      */
-    protected <T extends View> T byView(int resId){
+    protected <T extends View> T byView(int resId) {
         return (T) getView().findViewById(resId);
     }
 
-    protected void goTo(Class<? extends AbsBaseActivity> to){
-        context.startActivity(new Intent(context,to));
+    protected void goTo(Class<? extends AbsBaseActivity> to) {
+        context.startActivity(new Intent(context, to));
     }
 
 

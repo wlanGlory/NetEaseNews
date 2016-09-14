@@ -10,19 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <TextView
             android:id="@+id/main_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-           />
+            android:layout_gravity="center" />
 
     </FrameLayout>
 
     <View
-        android:background="@color/colorTabNormal"
         android:layout_width="match_parent"
-        android:layout_height="1dp" />
+        android:layout_height="1dp"
+        android:background="@color/colorView" />
 
     <LinearLayout
 
@@ -41,45 +41,48 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:button="@null"
                 android:background="@null"
+                android:button="@null"
                 android:drawableTop="@drawable/selector_news"
                 android:gravity="center"
-                android:text="新闻" />
+                android:text="新闻"
+                android:textColor="@drawable/color_character" />
 
             <RadioButton
                 android:id="@+id/live_rb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@null"
                 android:button="@null"
                 android:drawableTop="@drawable/selector_live"
-                android:background="@null"
-
                 android:gravity="center"
-                android:text="直播" />
+                android:text="直播"
+                android:textColor="@drawable/color_character" />
 
             <RadioButton
                 android:id="@+id/topic_rb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@null"
                 android:button="@null"
                 android:drawableTop="@drawable/selector_topic"
-                android:background="@null"
                 android:gravity="center"
-                android:text="话题" />
+                android:text="话题"
+                android:textColor="@drawable/color_character" />
 
             <RadioButton
                 android:id="@+id/user_rb"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@null"
                 android:button="@null"
                 android:drawableTop="@drawable/selector_user"
-                android:background="@null"
                 android:gravity="center"
-                android:text="我" />
+                android:text="我"
+                android:textColor="@drawable/color_character" />
         </RadioGroup>
 
     </LinearLayout>

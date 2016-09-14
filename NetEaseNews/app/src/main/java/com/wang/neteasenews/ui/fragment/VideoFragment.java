@@ -6,10 +6,11 @@ import com.wang.neteasenews.R;
 
 /**
  * Created by dllo on 16/9/10.
+ * 新闻界面视频部分
  */
 public class VideoFragment extends AbsBaseFragment {
-    
-    
+
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_video;
@@ -26,9 +27,9 @@ public class VideoFragment extends AbsBaseFragment {
     }
 
     public static VideoFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         VideoFragment fragment = new VideoFragment();
         fragment.setArguments(args);
         return fragment;

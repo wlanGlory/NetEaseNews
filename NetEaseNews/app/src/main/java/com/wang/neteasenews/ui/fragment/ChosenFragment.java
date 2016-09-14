@@ -1,7 +1,7 @@
 package com.wang.neteasenews.ui.fragment;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,43 +12,41 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.wang.neteasenews.R;
-import com.wang.neteasenews.model.bean.LiveBean;
-import com.wang.neteasenews.ui.adapter.LiveAdapter;
+import com.wang.neteasenews.model.bean.ChosenBean;
+import com.wang.neteasenews.ui.adapter.ChosenAdapter;
 
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/8.
- * 直播界面
+ * Created by dllo on 16/9/14.
+ * 精选界面
  */
-public class LiveFragment extends AbsBaseFragment {
-    private String url = "http://c.m.163.com/nc/live/list/5YWo5Zu9/0-20.html";
-    private ListView listview;
-    private LiveAdapter liveAdapter;
+public class ChosenFragment extends AbsBaseFragment {
+    private String url = "http://c.m.163.com/nc/article/list/T1467284926140/0-20.html";
+    private ListView listView;
+    private ChosenAdapter chosenAdapter;
 
     private RequestQueue queue;
 
-
-    public static LiveFragment newInstance() {
+    public static ChosenFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        LiveFragment fragment = new LiveFragment();
+        ChosenFragment fragment = new ChosenFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     protected int setLayout() {
-
-        return R.layout.fragment_live;
+        return R.layout.fragment_chosen;
     }
 
     @Override
     protected void initViews() {
-        listview = byView(R.id.live_lv);
-        liveAdapter = new LiveAdapter(getContext());
-        listview.setAdapter(liveAdapter);
+        listView = byView(R.id.chosen_listview);
+        chosenAdapter = new ChosenAdapter(context);
+        listView.setAdapter(chosenAdapter);
 
     }
 
@@ -59,10 +57,11 @@ public class LiveFragment extends AbsBaseFragment {
             @Override
             public void onResponse(String response) {
 //                Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+//                Log.d("ChosenFragment", response);
                 Gson gson = new Gson();
-                LiveBean liveBean = gson.fromJson(response, LiveBean.class);
-                List<LiveBean.T1462958418713Bean> datas = liveBean.getT1462958418713();
-                liveAdapter.setDatas(datas);
+                ChosenBean chosenBean = gson.fromJson(response, ChosenBean.class);
+                List<ChosenBean.T1467284926140Bean> datas = chosenBean.getT1467284926140();
+                chosenAdapter.setDatas(datas);
             }
         }, new Response.ErrorListener() {
             @Override

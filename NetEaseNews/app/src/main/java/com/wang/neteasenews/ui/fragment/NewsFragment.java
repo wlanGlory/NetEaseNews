@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/8.
+ * 新闻界面
  */
 public class NewsFragment extends AbsBaseFragment implements View.OnClickListener {
     private TabLayout newsTl;
@@ -31,9 +32,9 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private ImageView newsPopWindow;
 
     public static NewsFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         NewsFragment fragment = new NewsFragment();
         fragment.setArguments(args);
         return fragment;
@@ -47,7 +48,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     @Override
     protected void initViews() {
         newsTl = byView(R.id.news_tl);
-        newsVp= byView(R.id.news_vp);
+        newsVp = byView(R.id.news_vp);
         newsPopWindow = byView(R.id.news_popwindow);
         newsPopWindow.setOnClickListener(this);
 //        newsTl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -67,8 +68,8 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 //            }
 //        });
         datas = new ArrayList<>();
-        for (int i = 0; i <11 ; i++) {
-            datas.add(VideoFragment.newInstance());
+        for (int i = 0; i < 11; i++) {
+            datas.add(ChosenFragment.newInstance());
         }
 
     }
@@ -76,7 +77,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     @Override
     protected void initDatas() {
         FragmentManager fm = getChildFragmentManager();
-        newsAdapter = new NewsAdapter(fm,datas);
+        newsAdapter = new NewsAdapter(fm, datas);
         newsVp.setAdapter(newsAdapter);
         newsTl.setupWithViewPager(newsVp);
 
@@ -94,15 +95,12 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         newsTl.getTabAt(10).setText("军事");
 
 
-
-
-
-
     }
+
     // PopWindow 点击事件
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.news_popwindow:
                 //createWindow();
                 break;

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/8.
+ * 新闻界面适配器
  */
 public class NewsAdapter extends FragmentPagerAdapter{
     private List<Fragment> fragments;

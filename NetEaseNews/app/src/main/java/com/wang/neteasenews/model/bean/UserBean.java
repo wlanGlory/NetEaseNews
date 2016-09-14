@@ -2,6 +2,7 @@ package com.wang.neteasenews.model.bean;
 
 /**
  * Created by dllo on 16/9/13.
+ * 用户中心(我)实体类
  */
 public class UserBean {
     private int imgId;

@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/12.
+ * 直播界面实体类
  */
 public class LiveBean {
 

@@ -13,20 +13,22 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/8.
+ * 用户中心(我)界面
  */
-public class UserFragment extends AbsBaseFragment{
+public class UserFragment extends AbsBaseFragment {
     private List<UserBean> datas;
     private UserAdapter userAdpter;
     private ListView listView;
 
     public static UserFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         UserFragment fragment = new UserFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_user;
@@ -41,14 +43,14 @@ public class UserFragment extends AbsBaseFragment{
 
     private void buildDatas() {
         datas = new ArrayList<>();
-        datas.add(new UserBean(R.mipmap.user_msg,"我的消息"));
-        datas.add(new UserBean(R.mipmap.user_goldstore,"金币商城"));
-        datas.add(new UserBean(R.mipmap.user_goldtask,"金币任务"));
-        datas.add(new UserBean(R.mipmap.user_mypurse,"我的钱包"));
-        datas.add(new UserBean(R.mipmap.user_night,"夜间模式"));
-        datas.add(new UserBean(R.mipmap.user_offline_read,"离线阅读"));
-        datas.add(new UserBean(R.mipmap.user_squre,"活动广场"));
-        datas.add(new UserBean(R.mipmap.user_opinion,"意见反馈"));
+        datas.add(new UserBean(R.mipmap.user_msg, "我的消息"));
+        datas.add(new UserBean(R.mipmap.user_goldstore, "金币商城"));
+        datas.add(new UserBean(R.mipmap.user_goldtask, "金币任务"));
+        datas.add(new UserBean(R.mipmap.user_mypurse, "我的钱包"));
+        datas.add(new UserBean(R.mipmap.user_night, "夜间模式"));
+        datas.add(new UserBean(R.mipmap.user_offline_read, "离线阅读"));
+        datas.add(new UserBean(R.mipmap.user_squre, "活动广场"));
+        datas.add(new UserBean(R.mipmap.user_opinion, "意见反馈"));
     }
 
     @Override
