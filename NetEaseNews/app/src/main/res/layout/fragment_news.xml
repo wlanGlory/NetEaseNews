@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@color/colorTabSelected"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -15,10 +17,12 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/netease_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@mipmap/icon_netease" />
 
             <ImageView
                 android:id="@+id/search_btn"
@@ -26,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="200dp"
                 android:layout_toRightOf="@id/netease_btn"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/topic_search" />
 
             <ImageView
                 android:id="@+id/live_btn"
@@ -34,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/live" />
 
         </RelativeLayout>
 

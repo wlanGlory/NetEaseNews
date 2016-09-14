@@ -2,73 +2,59 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:orientation="horizontal">
+    android:layout_margin="10dp">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
 
         <ImageView
-            android:layout_marginLeft="10dp"
             android:id="@+id/topline_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:src="@mipmap/ic_launcher" />
 
+        <TextView
+            android:id="@+id/topline_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topline_img"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/topline_img"
+            android:text="456" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/topline_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/pull_down" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="3">
+        <TextView
+            android:id="@+id/topline_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/topline_img"
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-               android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/topline_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="456" />
-
-            <TextView
-                android:id="@+id/topline_source"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_height="wrap_content"
-
-                android:layout_marginLeft="10dp"
-                android:layout_below="@id/topline_title"
-                android:text="新华社" />
-            <ImageView
-                android:id="@+id/topline_delete"
-
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@id/topline_source"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
-
-            <TextView
-                android:id="@+id/topline_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/topline_delete"
-                android:layout_alignBottom="@id/topline_delete"
-                android:layout_alignTop="@id/topline_source"
-
-                android:text="置顶" />
-
-        </RelativeLayout>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/topline_img"
 
 
-    </LinearLayout>
+            android:text="新华社" />
+
+        <TextView
+            android:id="@+id/topline_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topline_source"
+            android:layout_toLeftOf="@id/topline_delete"
+            android:text="置顶" />
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>
