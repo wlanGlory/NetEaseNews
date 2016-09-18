@@ -8,7 +8,7 @@ import com.wang.neteasenews.R;
  * Created by dllo on 16/9/10.
  * 新闻界面视频部分
  */
-public class VideoFragment extends AbsBaseFragment {
+public class NewsVideoFragment extends AbsBaseFragment {
 
 
     @Override
@@ -26,11 +26,11 @@ public class VideoFragment extends AbsBaseFragment {
 
     }
 
-    public static VideoFragment newInstance() {
+    public static NewsVideoFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        VideoFragment fragment = new VideoFragment();
+        NewsVideoFragment fragment = new NewsVideoFragment();
         fragment.setArguments(args);
         return fragment;
     }

@@ -22,11 +22,17 @@ import java.util.List;
  */
 public class LiveAdapter extends BaseAdapter {
     private List<LiveBean.T1462958418713Bean> datas;
+//    private List<LiveBean.T1462958418713Bean.LiveInfoBean> datasInfo;
     private Context context;
 
     public LiveAdapter(Context context) {
         this.context = context;
     }
+
+//    public void setDatasInfo(List<LiveBean.T1462958418713Bean.LiveInfoBean> datasInfo) {
+//        this.datasInfo = datasInfo;
+//        notifyDataSetChanged();
+//    }
 
     public void setDatas(List<LiveBean.T1462958418713Bean> datas) {
         this.datas = datas;
@@ -60,11 +66,14 @@ public class LiveAdapter extends BaseAdapter {
         }
 
         LiveBean.T1462958418713Bean bean = datas.get(position);
+//        LiveBean.T1462958418713Bean.LiveInfoBean infoBean = datasInfo.get(position);
         if (bean != null) {
             holder.titleTv.setText(bean.getTitle());
 
             Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
             holder.sourceTv.setText(bean.getSource());
+            holder.tagTv.setText(bean.getTAGS());
+            holder.ptimeTv.setText(bean.getSkipType());
         }
         return convertView;
     }
@@ -74,11 +83,15 @@ public class LiveAdapter extends BaseAdapter {
         TextView titleTv;
         ImageView imgIv;
         TextView sourceTv;
+        TextView tagTv;
+        TextView ptimeTv;
 
         public LiveViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.live_title);
             imgIv = (ImageView) view.findViewById(R.id.live_img);
             sourceTv = (TextView) view.findViewById(R.id.live_source_tv);
+            tagTv = (TextView) view.findViewById(R.id.live_review_tv);
+            ptimeTv = (TextView) view.findViewById(R.id.live_date_tv);
         }
     }
 }

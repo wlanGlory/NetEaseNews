@@ -1,7 +1,6 @@
 package com.wang.neteasenews.ui.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,31 +11,31 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.wang.neteasenews.R;
-import com.wang.neteasenews.model.bean.ChosenBean;
+import com.wang.neteasenews.model.bean.NewsSportsBean;
 import com.wang.neteasenews.ui.adapter.ChosenAdapter;
+import com.wang.neteasenews.ui.adapter.NewsSportsAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/14.
- * 精选界面
+ * Created by dllo on 16/9/16.
+ * 新闻界面体育部分
  */
-public class ChosenFragment extends AbsBaseFragment {
-    private String url = "http://c.m.163.com/nc/article/list/T1467284926140/0-20.html";
+public class NewsSportsFragment extends AbsBaseFragment {
+    private String url = "http://c.3g.163.com/nc/article/list/T1348649079062/0-20.html";
     private ListView listView;
-    private ChosenAdapter chosenAdapter;
-
+    private NewsSportsAdapter newsSportAdapter;
     private RequestQueue queue;
 
-    public static ChosenFragment newInstance() {
-
+    public static NewsSportsFragment newInstance() {
+        
         Bundle args = new Bundle();
-
-        ChosenFragment fragment = new ChosenFragment();
+        
+        NewsSportsFragment fragment = new NewsSportsFragment();
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     protected int setLayout() {
         return R.layout.fragment_chosen;
@@ -45,23 +44,22 @@ public class ChosenFragment extends AbsBaseFragment {
     @Override
     protected void initViews() {
         listView = byView(R.id.chosen_listview);
-        chosenAdapter = new ChosenAdapter(context);
-        listView.setAdapter(chosenAdapter);
+        newsSportAdapter = new NewsSportsAdapter(context);
+        listView.setAdapter(newsSportAdapter);
 
     }
 
     @Override
     protected void initDatas() {
-        queue = Volley.newRequestQueue(getContext());
+        queue = Volley.newRequestQueue(context);
         StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 //                Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
-//                Log.d("ChosenFragment", response);
                 Gson gson = new Gson();
-                ChosenBean chosenBean = gson.fromJson(response, ChosenBean.class);
-                List<ChosenBean.T1467284926140Bean> datas = chosenBean.getT1467284926140();
-                chosenAdapter.setDatas(datas);
+                NewsSportsBean newsSportsBean = gson.fromJson(response,NewsSportsBean.class);
+                List<NewsSportsBean.T1348649079062Bean> datas = newsSportsBean.getT1348649079062();
+               newsSportAdapter.setDatas(datas);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -70,5 +68,7 @@ public class ChosenFragment extends AbsBaseFragment {
             }
         });
         queue.add(sr);
+
     }
+
 }

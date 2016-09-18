@@ -20,12 +20,12 @@ public class PopWindowAdapter extends RecyclerView.Adapter<PopWindowAdapter.PopV
     private Context context;
     private List<String> datas;
 
-    // 定义长按点击接口对象
-    private OnRvItemLongClick onRvItemLongClick;
-    // 提供set方法
-    public void setOnRvItemLongClick(OnRvItemLongClick onRvItemLongClick) {
-        this.onRvItemLongClick = onRvItemLongClick;
-    }
+//    // 定义长按点击接口对象
+//    private OnRvItemLongClick onRvItemLongClick;
+//    // 提供set方法
+//    public void setOnRvItemLongClick(OnRvItemLongClick onRvItemLongClick) {
+//        this.onRvItemLongClick = onRvItemLongClick;
+//    }
 
     public PopWindowAdapter(Context context) {
         this.context = context;
@@ -47,17 +47,17 @@ public class PopWindowAdapter extends RecyclerView.Adapter<PopWindowAdapter.PopV
     @Override
     public void onBindViewHolder(final PopViewHolder holder, int position) {
         holder.textView.setText(datas.get(position));
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if(onRvItemLongClick != null){
-                    int position = holder.getLayoutPosition();
-                    String str = datas.get(position);
-                    onRvItemLongClick.onItemLongClick(position,str);
-                }
-                return false;
-            }
-        });
+//        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                if(onRvItemLongClick != null){
+//                    int position = holder.getLayoutPosition();
+//                    String str = datas.get(position);
+//                    onRvItemLongClick.onItemLongClick(position,str);
+//                }
+//                return false;
+//            }
+//        });
     }
 
     @Override

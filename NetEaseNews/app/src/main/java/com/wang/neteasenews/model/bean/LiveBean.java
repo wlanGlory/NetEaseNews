@@ -296,6 +296,7 @@ public class LiveBean {
         }
 
         public static class LiveInfoBean {
+
             private boolean pano;
             private String end_time;
             private int user_count;

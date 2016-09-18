@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      >
+        <TextView
+            android:id="@+id/me_setting_tv"
+            android:drawableLeft="@mipmap/setting"
+            android:text="设置"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/me_login_btn"
+            android:background="@null"
+            android:layout_below="@id/me_setting_tv"
+            android:text="登录"
+            android:textColor="@color/colorTabSelected"
+            android:layout_width="150dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/me_no_account_tv"
+            android:text="没有账号?手机号快速登录>"
+            android:layout_marginTop="7dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/me_setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/me_wechat_login_tv"
+            android:layout_below="@id/me_login_btn"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:text="微信登录"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@id/me_wechat_login_tv"
+            android:background="#000"
+            android:text="|"
+            android:gravity="center_vertical"
+            android:layout_below="@id/me_login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

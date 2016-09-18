@@ -41,9 +41,9 @@ public class TopicFragment extends AbsBaseFragment {
         topicTl = byView(R.id.topic_tl);
         topicVp = byView(R.id.topic_vp);
         datas = new ArrayList<>();
-        datas.add(QuestionFragment.newInstance());
-        datas.add(QuestionFragment.newInstance());
-        datas.add(QuestionFragment.newInstance());
+        datas.add(TopicQuestionFragment.newInstance());
+        datas.add(TopicQuestionFragment.newInstance());
+        datas.add(TopicQuestionFragment.newInstance());
 
 
     }

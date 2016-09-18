@@ -3,52 +3,63 @@ package com.wang.neteasenews.model.bean;
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/14.
- * 精选界面实体类
+ * Created by dllo on 16/9/18.
+ * 新闻界面娱乐实体类
  */
-public class ChosenBean {
+public class NewsEntertainmentBean {
 
     /**
-     * postid : PHOT2326D000100A
+     * postid : PHOTIKGL000300AJ
      * hasCover : false
      * hasHead : 1
-     * replyCount : 34903
+     * replyCount : 165
      * hasImg : 1
      * digest :
-     * hasIcon : false
-     * docid : 9IG74V5H00963VRO_C0TBR54MhuangdaupdateDoc
-     * title : 夫妻住崖壁20多年 清扫游客所丢垃圾
+     * hasIcon : true
+     * docid : 9IG74V5H00963VRO_C196EU1AzhangjingyuupdateDoc
+     * title : 范玮琪瘦成这样你们觉得美不美？
      * order : 1
-     * priority : 254
-     * lmodify : 2016-09-14 08:48:06
-     * boardid : photoview_bbs
-     * photosetID : 00AP0001|2197709
+     * priority : 250
+     * lmodify : 2016-09-18 19:51:35
+     * boardid : ent2_bbs
+     * ads : [{"title":"敢穿我只服金大姐！金卡戴珊透视装出街","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/35d13c7f1cdb485eb7b25a29d5e71bb820160910102629.jpeg","subtitle":"","url":"00AJ0003|610122"}]
+     * photosetID : 00AJ0003|610837
      * template : normal1
-     * votecount : 33250
-     * skipID : 00AP0001|2197709
-     * alias : yaowenspecial
+     * votecount : 128
+     * skipID : 00AJ0003|610837
+     * alias : Entertainment
      * skipType : photoset
-     * cid : C1348647991705
+     * cid : C1348648351901
      * hasAD : 1
-     * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/7f3bd76c1dff4c9f80a764d7abbf896f20160914053416.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/55c0dd69b3ee4a60a3c583c0414d66ee20160914053417.jpeg"}]
+     * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/1f915e0b01af4e289035e9b222ce61d320160918194930.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/1e2abf494edf4bb2a7f85aefca6d142e20160918194931.jpeg"}]
      * source : 网易原创
-     * ename : yaowenspecial
-     * imgsrc : http://cms-bucket.nosdn.127.net/b38bf383912c4e93a5e714edae968edb20160914053415.jpeg
-     * tname : 精选
-     * ptime : 2016-09-14 05:32:43
+     * ename : yule
+     * imgsrc : http://cms-bucket.nosdn.127.net/5a02bbf61199419b8766bf3e3b3643b920160918195120.jpeg
+     * tname : 娱乐
+     * ptime : 2016-09-18 19:49:33
      */
 
-    private List<T1467284926140Bean> T1467284926140;
+    private List<T1348648517839Bean> T1348648517839;
 
-    public List<T1467284926140Bean> getT1467284926140() {
-        return T1467284926140;
+    public List<T1348648517839Bean> getT1348648517839() {
+        return T1348648517839;
     }
 
-    public void setT1467284926140(List<T1467284926140Bean> T1467284926140) {
-        this.T1467284926140 = T1467284926140;
+    public void setT1348648517839(List<T1348648517839Bean> T1348648517839) {
+        this.T1348648517839 = T1348648517839;
     }
 
-    public static class T1467284926140Bean {
+    public static class T1348648517839Bean {
+        private int imgType;
+
+        public int getImgType() {
+            return imgType;
+        }
+
+        public void setImgType(int imgType) {
+            this.imgType = imgType;
+        }
+
         private String postid;
         private boolean hasCover;
         private int hasHead;
@@ -76,7 +87,16 @@ public class ChosenBean {
         private String tname;
         private String ptime;
         /**
-         * imgsrc : http://cms-bucket.nosdn.127.net/7f3bd76c1dff4c9f80a764d7abbf896f20160914053416.jpeg
+         * title : 敢穿我只服金大姐！金卡戴珊透视装出街
+         * tag : photoset
+         * imgsrc : http://cms-bucket.nosdn.127.net/35d13c7f1cdb485eb7b25a29d5e71bb820160910102629.jpeg
+         * subtitle :
+         * url : 00AJ0003|610122
+         */
+
+        private List<AdsBean> ads;
+        /**
+         * imgsrc : http://cms-bucket.nosdn.127.net/1f915e0b01af4e289035e9b222ce61d320160918194930.jpeg
          */
 
         private List<ImgextraBean> imgextra;
@@ -289,12 +309,68 @@ public class ChosenBean {
             this.ptime = ptime;
         }
 
+        public List<AdsBean> getAds() {
+            return ads;
+        }
+
+        public void setAds(List<AdsBean> ads) {
+            this.ads = ads;
+        }
+
         public List<ImgextraBean> getImgextra() {
             return imgextra;
         }
 
         public void setImgextra(List<ImgextraBean> imgextra) {
             this.imgextra = imgextra;
+        }
+
+        public static class AdsBean {
+            private String title;
+            private String tag;
+            private String imgsrc;
+            private String subtitle;
+            private String url;
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getTag() {
+                return tag;
+            }
+
+            public void setTag(String tag) {
+                this.tag = tag;
+            }
+
+            public String getImgsrc() {
+                return imgsrc;
+            }
+
+            public void setImgsrc(String imgsrc) {
+                this.imgsrc = imgsrc;
+            }
+
+            public String getSubtitle() {
+                return subtitle;
+            }
+
+            public void setSubtitle(String subtitle) {
+                this.subtitle = subtitle;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
         }
 
         public static class ImgextraBean {

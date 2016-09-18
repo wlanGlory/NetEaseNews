@@ -8,12 +8,12 @@ import com.wang.neteasenews.R;
  * Created by dllo on 16/9/12.
  *
  */
-public class QuestionFragment extends AbsBaseFragment {
-    public static QuestionFragment newInstance() {
+public class TopicQuestionFragment extends AbsBaseFragment {
+    public static TopicQuestionFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        QuestionFragment fragment = new QuestionFragment();
+        TopicQuestionFragment fragment = new TopicQuestionFragment();
         fragment.setArguments(args);
         return fragment;
     }

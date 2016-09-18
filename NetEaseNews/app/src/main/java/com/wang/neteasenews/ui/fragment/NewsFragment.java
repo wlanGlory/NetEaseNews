@@ -1,12 +1,12 @@
 package com.wang.neteasenews.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ import android.widget.PopupWindow;
 
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.ui.adapter.NewsAdapter;
+import com.wang.neteasenews.ui.adapter.PopWindowAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,9 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private NewsAdapter newsAdapter;
     private List<Fragment> datas;
     private ImageView newsPopWindow;
+    private RecyclerView recyclerView;
+    private PopWindowAdapter popWindowAdapter;
+    private List<String> list;
 
     public static NewsFragment newInstance() {
 
@@ -51,6 +55,8 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         newsVp = byView(R.id.news_vp);
         newsPopWindow = byView(R.id.news_popwindow);
         newsPopWindow.setOnClickListener(this);
+
+
 //        newsTl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 //            @Override
 //            public void onTabSelected(TabLayout.Tab tab) {
@@ -68,9 +74,21 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 //            }
 //        });
         datas = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
-            datas.add(ChosenFragment.newInstance());
-        }
+
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsSportsFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsChosenFragment.newInstance());
+
+
+
 
     }
 
@@ -102,17 +120,36 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.news_popwindow:
-                //createWindow();
+                createWindow();
                 break;
         }
     }
 // 弹出窗口
-//    private void createWindow() {
-//        PopupWindow pw = new PopupWindow(getContext());
-//        pw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-//        pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-//
-//
-//
-//    }
+    private void createWindow() {
+
+        PopupWindow pw = new PopupWindow(getContext());
+        pw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        pw.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+
+        View v = LayoutInflater.from(context).inflate(R.layout.popwindow_layout,null);
+
+        pw.setContentView(v);
+        pw.setFocusable(true);
+
+        pw.showAsDropDown(newsPopWindow);
+        recyclerView = (RecyclerView) v.findViewById(R.id.popw_rv);
+        popWindowAdapter = new PopWindowAdapter(context);
+        recyclerView.setAdapter(popWindowAdapter);
+        GridLayoutManager glm = new GridLayoutManager(context,4);
+        recyclerView.setLayoutManager(glm);
+
+        list = new ArrayList<>();
+        for (int i = 0; i <64 ; i++) {
+            list.add("测试"+i);
+        }
+        popWindowAdapter.setDatas(list);
+
+
+
+    }
 }

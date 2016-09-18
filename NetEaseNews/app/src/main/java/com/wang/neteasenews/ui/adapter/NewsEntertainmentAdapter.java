@@ -8,33 +8,33 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
-import com.wang.neteasenews.model.bean.NewsSportsBean;
+import com.wang.neteasenews.model.bean.NewsEntertainmentBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by dllo on 16/9/14.
- * 精选适配器类
+ * 娱乐适配器类
  */
-public class ChosenAdapter extends BaseAdapter {
+public class NewsEntertainmentAdapter extends BaseAdapter {
     private Context context;
-    private List<NewsChosenBean.T1467284926140Bean> datas;
+    private List<NewsEntertainmentBean.T1348648517839Bean> datas;
 
     private static final int TYPE_ONE_IMG_LEFT = 0;
     private static final int TYPE_ONE_IMG = 1;
     private static final int TYPE_THREE_IMG = 2;
     private static final int TYPE_HEAD_IMG = 3;
 
-    public ChosenAdapter(Context context) {
+    public NewsEntertainmentAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<NewsChosenBean.T1467284926140Bean> datas) {
+    public void setDatas(List<NewsEntertainmentBean.T1348648517839Bean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
@@ -56,20 +56,15 @@ public class ChosenAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if(datas.get(position).getOrder() == 1){
+
+
+        if (datas.get(position).getOrder() == 1) {
             return TYPE_HEAD_IMG;
-        }
-       else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
             Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
-        }
-//        if (datas.get(position).getImgextra()!=null) {
-//            return TYPE_THREE_IMG;
-//        }
-        else if (datas.get(position).getImgType() == 1) {
-
+        } else if (datas.get(position).getImgType() == 1) {
             return TYPE_ONE_IMG;
-
         } else {
             Log.d("zzz", "左侧图片");
             return TYPE_ONE_IMG_LEFT;
@@ -108,7 +103,7 @@ public class ChosenAdapter extends BaseAdapter {
                     convertView.setTag(threeHolder);
                     break;
                 case TYPE_HEAD_IMG:
-                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list,parent,false);
+                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list, parent, false);
                     headViewHolder = new ChosenHeadViewHolder(convertView);
                     convertView.setTag(headViewHolder);
                     break;
@@ -130,7 +125,8 @@ public class ChosenAdapter extends BaseAdapter {
             }
 
         }
-        NewsChosenBean.T1467284926140Bean bean = datas.get(position);
+
+        NewsEntertainmentBean.T1348648517839Bean bean = datas.get(position);
         switch (type) {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
@@ -158,21 +154,6 @@ public class ChosenAdapter extends BaseAdapter {
                 Picasso.with(context).load(bean.getImgsrc()).into(headViewHolder.headImg);
         }
 
-//        if (convertView == null) {
-//
-//            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-//            holder = new ChosenViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ChosenViewHolder) convertView.getTag();
-//        }
-//        NewsChosenBean.T1467284926140Bean bean = datas.get(position);
-//        if (bean != null) {
-//            holder.titleTv.setText(bean.getTitle());
-//            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//            holder.sourceTv.setText(bean.getSource());
-//
-//        }
         return convertView;
     }
 
@@ -227,8 +208,9 @@ public class ChosenAdapter extends BaseAdapter {
     /**
      * 头布局
      */
-    private class ChosenHeadViewHolder{
+    private class ChosenHeadViewHolder {
         ImageView headImg;
+
         public ChosenHeadViewHolder(View view) {
             headImg = (ImageView) view.findViewById(R.id.head_list_img);
         }

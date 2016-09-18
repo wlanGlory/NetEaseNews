@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/item_beauty_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/item_beauty_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_beauty_img"
+        android:layout_marginLeft="10dp"
+        android:text="123"
+
+        />
+
+    <View
+        android:id="@+id/item_beauty_view"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@id/item_beauty_title_tv"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:id="@+id/item_beauty_good_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_beauty_view"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:gravity="center_vertical"
+        android:text="190" />
+
+    <TextView
+        android:id="@+id/item_beauty_bad_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_beauty_view"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/item_beauty_good_tv"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:gravity="center_vertical"
+        android:text="190" />
+
+    <ImageView
+        android:id="@+id/item_beauty_share_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/item_beauty_view"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_beauty_view"
+        android:layout_toLeftOf="@id/item_beauty_share_img"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:gravity="center_vertical"
+        android:text="评论" />
+
+
+</RelativeLayout>
