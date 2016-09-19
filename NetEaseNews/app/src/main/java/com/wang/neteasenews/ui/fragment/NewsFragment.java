@@ -15,6 +15,7 @@ import android.widget.PopupWindow;
 
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.ui.adapter.NewsAdapter;
+import com.wang.neteasenews.ui.adapter.NewsEntertainmentAdapter;
 import com.wang.neteasenews.ui.adapter.PopWindowAdapter;
 
 import java.util.ArrayList;
@@ -77,13 +78,13 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 
         datas.add(NewsChosenFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
-        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsEntertainmentFragment.newInstance());
         datas.add(NewsSportsFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsFinanceFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
-        datas.add(NewsChosenFragment.newInstance());
-        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsFashionFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
 

@@ -12,28 +12,32 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.wang.neteasenews.R;
+import com.wang.neteasenews.interfaces.AllUrlValues;
 import com.wang.neteasenews.model.bean.NewsEntertainmentBean;
+import com.wang.neteasenews.model.net.VolleyInstance;
+import com.wang.neteasenews.model.net.VolleyResult;
 import com.wang.neteasenews.ui.adapter.NewsEntertainmentAdapter;
+import com.wang.neteasenews.utils.AllConstantValues;
 
 import java.util.List;
 
 /**
  * Created by dllo on 16/9/16.
  */
-public class NewsEntertainmentFragment extends AbsBaseFragment{
-    private String url = "http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html";
+public class NewsEntertainmentFragment extends AbsBaseFragment {
+
     private ListView listView;
     private NewsEntertainmentAdapter newsEntertainmentAdapter;
-    private RequestQueue queue;
 
     public static NewsEntertainmentFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         NewsEntertainmentFragment fragment = new NewsEntertainmentFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_chosen;
@@ -49,23 +53,40 @@ public class NewsEntertainmentFragment extends AbsBaseFragment{
 
     @Override
     protected void initDatas() {
-        queue = Volley.newRequestQueue(context);
-        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
 
+        VolleyInstance.getInstance().setRequset(AllConstantValues.ENTERTAINMENTURL, new VolleyResult() {
+            @Override
+            public void success(String resultStr) {
                 Gson gson = new Gson();
-                NewsEntertainmentBean bean = gson.fromJson(response,NewsEntertainmentBean.class);
+                NewsEntertainmentBean bean = gson.fromJson(resultStr, NewsEntertainmentBean.class);
                 List<NewsEntertainmentBean.T1348648517839Bean> datas = bean.getT1348648517839();
                 newsEntertainmentAdapter.setDatas(datas);
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void failure() {
 
             }
         });
-        queue.add(sr);
+
+//        queue = Volley.newRequestQueue(context);
+//        StringRequest sr = new StringRequest(AllConstantValues.ENTERTAINMENTURL, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                Log.d("NewsEntertainmentFragme", response);
+//
+//                Gson gson = new Gson();
+//                NewsEntertainmentBean bean = gson.fromJson(response,NewsEntertainmentBean.class);
+//                List<NewsEntertainmentBean.T1348648517839Bean> datas = bean.getT1348648517839();
+//                newsEntertainmentAdapter.setDatas(datas);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d("NewsEntertainmentFragme", "错误");
+//            }
+//        });
+//        queue.add(sr);
 
     }
 }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">NetEaseNews</string>
+    <!--新闻界面下方四个RadioButton(activity_main)-->
+    <string name="news_name">新闻</string>
+    <string name="live_name">直播</string>
+    <string name="topic_name">话题</string>
+    <string name="me_name">我</string>
+    <!--美女行布局(item_beauty)-->
+    <string name="beauty_comment">评论</string>
+
+
+
 </resources>

@@ -8,12 +8,12 @@
 
     <TextView
         android:textSize="16sp"
-        android:textColor="#000"
+        android:textColor="@color/live_title"
         android:id="@+id/live_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/live_title_margin_left"
+        android:layout_marginTop="@dimen/live_title_margin_top"
         android:text="123465" />
 
     <ImageView
@@ -21,18 +21,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/live_title"
-        android:layout_marginTop="-30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="@dimen/live_img_margin_top"
+        android:layout_marginLeft="@dimen/live_img_margin_left"
+        android:layout_marginRight="@dimen/live_img_margin_right"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="@dimen/live_source_margin_top"
         android:id="@+id/live_source_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/live_img"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/live_source_margin_left"
         android:text="123" />
 
 
@@ -42,9 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/live_img"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="-30dp"
+        android:layout_marginRight="@dimen/live_video_margin_right"
+        android:layout_marginBottom="@dimen/live_video_margin_bottom"
+        android:layout_marginTop="@dimen/live_video_margin_top"
         android:src="@mipmap/pull_down"
         />
 
@@ -55,7 +55,7 @@
 
         android:layout_alignTop="@id/live_video_img"
         android:layout_toLeftOf="@id/live_video_img"
-        android:text="直播回顾" />
+        />
 
     <TextView
         android:id="@+id/live_time_tv"
@@ -63,16 +63,16 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/live_review_tv"
         android:layout_toLeftOf="@id/live_review_tv"
-        android:text="8:30" />
+         />
 
     <TextView
         android:id="@+id/live_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="@dimen/live_date_margin_top"
         android:layout_below="@id/live_img"
         android:layout_toLeftOf="@id/live_time_tv"
-        android:text="今天" />
+         />
 
 
 </RelativeLayout>

@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:background="@color/colorTabSelected"
         android:orientation="horizontal">
-
         <android.support.design.widget.TabLayout
             android:id="@+id/topic_tl"
             android:layout_width="wrap_content"
@@ -18,25 +17,21 @@
             app:tabIndicatorColor="@color/colorTopicTabSelected"
             app:tabSelectedTextColor="@color/colorTopicTabSelected"
             app:tabTextColor="@color/colorTabNormal">
-
         </android.support.design.widget.TabLayout>
 
         <ImageView
             android:id="@+id/topic_search"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="90dp"
+            android:layout_marginLeft="@dimen/topic_img1_margin_left"
             android:src="@mipmap/topic_search" />
-
         <ImageView
             android:id="@+id/topic_login"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="@dimen/topic_img2_margin_left"
             android:src="@mipmap/icon_me" />
     </LinearLayout>
 

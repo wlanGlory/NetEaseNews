@@ -3,57 +3,58 @@ package com.wang.neteasenews.model.bean;
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/16.
- * 新闻界面体育部分实体类
+ * Created by dllo on 16/9/19.
+ * 新闻界面财经实体类
  */
-public class NewsSportsBean {
+public class NewsFinanceBean {
 
     /**
-     * postid : PHOT4GP8000528F9
+     * postid : C1ATA3AD002580S6
      * hasCover : false
      * hasHead : 1
-     * replyCount : 2566
+     * replyCount : 6197
+     * ltitle : 大学毕业生不如农民工？薪酬差距仅1.2倍
      * hasImg : 1
-     * digest :
+     * digest : 许林（化名）是一位大学生的家长，在刚刚过去的中秋节聚会上，谈起他上大学二年级的儿子，不禁对孩子未来找工作前景颇为担忧。因为，他的直观感受是，大学毕业生现在已经越
      * hasIcon : true
-     * docid : 9IG74V5H00963VRO_C12P4D4TbjyexiangupdateDoc
-     * title : 狂乱的赛马场:走光频上演 约pao好地点?
+     * docid : C1ATA3AD002580S6
+     * title : 大学毕业生不如农民工？薪酬差距仅1.2倍
      * order : 1
-     * priority : 249
-     * lmodify : 2016-09-16 14:51:23
-     * boardid : sports2_bbs
-     * ads : [{"title":"巴西美臀小姐乱入胸袭球员 全场都惊呆了","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/3dbdec7a383c464b87f5ab46cc65c24720160915144546.jpeg","subtitle":"","url":"00C90005|148250"}]
-     * photosetID : 28F90005|148264
+     * priority : 254
+     * lmodify : 2016-09-19 17:28:22
+     * boardid : money_bbs
+     * ads : [{"docid":"C1AD3NCE002580SM","title":"全球最大石油公司之一埃克森美孚遭调查","tag":"doc","imgsrc":"http://cms-bucket.nosdn.127.net/fb0faa44fa9b494585ba7e78ab2e160b20160919073749.jpeg","subtitle":"","url":"C1AD3NCE002580SM"}]
+     * url_3w : http://money.163.com/16/0919/11/C1ATA3AD002580S6.html
      * template : normal1
-     * votecount : 2182
-     * skipID : 28F90005|148264
-     * alias : Sports
-     * skipType : photoset
-     * cid : C1348649048655
+     * votecount : 5722
+     * alias : Business
+     * cid : C1348648727071
+     * url : http://3g.163.com/money/16/0919/11/C1ATA3AD002580S6.html
      * hasAD : 1
-     * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/13c3faefd5864d7e85b7971a457a537920160916080426.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/5737ebf3a44d4393b65edc7889945dd420160916080438.jpeg"}]
-     * source : 网易原创
-     * ename : tiyu
-     * imgsrc : http://cms-bucket.nosdn.127.net/9f7f1a30b2a943a39ceedce3e4b5e8b020160916145117.jpeg
-     * tname : 体育
-     * ptime : 2016-09-16 08:01:10
+     * source : 21世纪经济报道
+     * ename : caijing
+     * subtitle :
+     * imgsrc : http://cms-bucket.nosdn.127.net/71c6217210d74dd0b14423a58f4ee99220160919172812.jpeg
+     * tname : 财经
+     * ptime : 2016-09-19 11:25:00
      */
 
-    private List<T1348649079062Bean> T1348649079062;
+    private List<T1348648756099Bean> T1348648756099;
 
-    public List<T1348649079062Bean> getT1348649079062() {
-        return T1348649079062;
+    public List<T1348648756099Bean> getT1348648756099() {
+        return T1348648756099;
     }
 
-    public void setT1348649079062(List<T1348649079062Bean> T1348649079062) {
-        this.T1348649079062 = T1348649079062;
+    public void setT1348648756099(List<T1348648756099Bean> T1348648756099) {
+        this.T1348648756099 = T1348648756099;
     }
 
-    public static class T1348649079062Bean {
+    public static class T1348648756099Bean {
         private String postid;
         private boolean hasCover;
         private int hasHead;
         private int replyCount;
+        private String ltitle;
         private int hasImg;
         private String digest;
         private boolean hasIcon;
@@ -63,44 +64,29 @@ public class NewsSportsBean {
         private int priority;
         private String lmodify;
         private String boardid;
-        private String photosetID;
+        private String url_3w;
         private String template;
         private int votecount;
-        private String skipID;
         private String alias;
-        private String skipType;
         private String cid;
+        private String url;
         private int hasAD;
         private String source;
         private String ename;
+        private String subtitle;
         private String imgsrc;
         private String tname;
         private String ptime;
-
-        private int imgType;
-
-        public int getImgType() {
-            return imgType;
-        }
-
-        public void setImgType(int imgType) {
-            this.imgType = imgType;
-        }
-
         /**
-         * title : 巴西美臀小姐乱入胸袭球员 全场都惊呆了
-         * tag : photoset
-         * imgsrc : http://cms-bucket.nosdn.127.net/3dbdec7a383c464b87f5ab46cc65c24720160915144546.jpeg
+         * docid : C1AD3NCE002580SM
+         * title : 全球最大石油公司之一埃克森美孚遭调查
+         * tag : doc
+         * imgsrc : http://cms-bucket.nosdn.127.net/fb0faa44fa9b494585ba7e78ab2e160b20160919073749.jpeg
          * subtitle :
-         * url : 00C90005|148250
+         * url : C1AD3NCE002580SM
          */
 
         private List<AdsBean> ads;
-        /**
-         * imgsrc : http://cms-bucket.nosdn.127.net/13c3faefd5864d7e85b7971a457a537920160916080426.jpeg
-         */
-
-        private List<ImgextraBean> imgextra;
 
         public String getPostid() {
             return postid;
@@ -132,6 +118,14 @@ public class NewsSportsBean {
 
         public void setReplyCount(int replyCount) {
             this.replyCount = replyCount;
+        }
+
+        public String getLtitle() {
+            return ltitle;
+        }
+
+        public void setLtitle(String ltitle) {
+            this.ltitle = ltitle;
         }
 
         public int getHasImg() {
@@ -206,12 +200,12 @@ public class NewsSportsBean {
             this.boardid = boardid;
         }
 
-        public String getPhotosetID() {
-            return photosetID;
+        public String getUrl_3w() {
+            return url_3w;
         }
 
-        public void setPhotosetID(String photosetID) {
-            this.photosetID = photosetID;
+        public void setUrl_3w(String url_3w) {
+            this.url_3w = url_3w;
         }
 
         public String getTemplate() {
@@ -230,14 +224,6 @@ public class NewsSportsBean {
             this.votecount = votecount;
         }
 
-        public String getSkipID() {
-            return skipID;
-        }
-
-        public void setSkipID(String skipID) {
-            this.skipID = skipID;
-        }
-
         public String getAlias() {
             return alias;
         }
@@ -246,20 +232,20 @@ public class NewsSportsBean {
             this.alias = alias;
         }
 
-        public String getSkipType() {
-            return skipType;
-        }
-
-        public void setSkipType(String skipType) {
-            this.skipType = skipType;
-        }
-
         public String getCid() {
             return cid;
         }
 
         public void setCid(String cid) {
             this.cid = cid;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
         }
 
         public int getHasAD() {
@@ -284,6 +270,14 @@ public class NewsSportsBean {
 
         public void setEname(String ename) {
             this.ename = ename;
+        }
+
+        public String getSubtitle() {
+            return subtitle;
+        }
+
+        public void setSubtitle(String subtitle) {
+            this.subtitle = subtitle;
         }
 
         public String getImgsrc() {
@@ -318,20 +312,21 @@ public class NewsSportsBean {
             this.ads = ads;
         }
 
-        public List<ImgextraBean> getImgextra() {
-            return imgextra;
-        }
-
-        public void setImgextra(List<ImgextraBean> imgextra) {
-            this.imgextra = imgextra;
-        }
-
         public static class AdsBean {
+            private String docid;
             private String title;
             private String tag;
             private String imgsrc;
             private String subtitle;
             private String url;
+
+            public String getDocid() {
+                return docid;
+            }
+
+            public void setDocid(String docid) {
+                this.docid = docid;
+            }
 
             public String getTitle() {
                 return title;
@@ -371,18 +366,6 @@ public class NewsSportsBean {
 
             public void setUrl(String url) {
                 this.url = url;
-            }
-        }
-
-        public static class ImgextraBean {
-            private String imgsrc;
-
-            public String getImgsrc() {
-                return imgsrc;
-            }
-
-            public void setImgsrc(String imgsrc) {
-                this.imgsrc = imgsrc;
             }
         }
     }

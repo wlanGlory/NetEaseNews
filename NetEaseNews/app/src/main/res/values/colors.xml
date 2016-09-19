@@ -6,6 +6,11 @@
     <color name="colorTabNormal">#8f8989</color>
     <color name="colorTabSelected">#dc4e4e</color>
     <color name="colorTopicTabSelected">#fff</color>
+    <!--分割线的颜色-->
     <color name="colorView">#e7e4e4</color>
+    <!--直播界面行布局(item_live)-->
+    <color name="live_title">#000</color>
+    <!--popwindow界面(item_popwindow)-->
+    <color name="popwindow_background">#1934e2</color>
 
 </resources>

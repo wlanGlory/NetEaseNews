@@ -14,7 +14,10 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
+import com.wang.neteasenews.model.net.VolleyInstance;
+import com.wang.neteasenews.model.net.VolleyResult;
 import com.wang.neteasenews.ui.adapter.ChosenAdapter;
+import com.wang.neteasenews.utils.AllConstantValues;
 
 import java.util.List;
 
@@ -25,12 +28,12 @@ import java.util.List;
 public class NewsChosenFragment extends AbsBaseFragment {
 //    private String url = "http://c.m.163.com/nc/article/list/T1467284926140/0-20.html";
 //
-    private String url = "http://c.3g.163.com/nc/article/list/T1467284926140/0-20.html";
+//    private String url = "http://c.3g.163.com/nc/article/list/T1467284926140/0-20.html";
 //    private String url = "http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html";
     private ListView listView;
     private ChosenAdapter chosenAdapter;
 
-    private RequestQueue queue;
+
 
     public static NewsChosenFragment newInstance() {
 
@@ -63,22 +66,39 @@ public class NewsChosenFragment extends AbsBaseFragment {
 
     @Override
     protected void initDatas() {
-        queue = Volley.newRequestQueue(context);
-        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
+
+
+        VolleyInstance.getInstance().setRequset(AllConstantValues.CHOSENURL, new VolleyResult() {
             @Override
-            public void onResponse(String response) {
+            public void success(String resultStr) {
 
                 Gson gson = new Gson();
-                NewsChosenBean newsChosenBean = gson.fromJson(response, NewsChosenBean.class);
+                NewsChosenBean newsChosenBean = gson.fromJson(resultStr, NewsChosenBean.class);
                 List<NewsChosenBean.T1467284926140Bean> datas = newsChosenBean.getT1467284926140();
                 chosenAdapter.setDatas(datas);
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void failure() {
 
             }
         });
-        queue.add(sr);
+//        queue = Volley.newRequestQueue(context);
+//        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//
+//                Gson gson = new Gson();
+//                NewsChosenBean newsChosenBean = gson.fromJson(response, NewsChosenBean.class);
+//                List<NewsChosenBean.T1467284926140Bean> datas = newsChosenBean.getT1467284926140();
+//                chosenAdapter.setDatas(datas);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        queue.add(sr);
     }
 }

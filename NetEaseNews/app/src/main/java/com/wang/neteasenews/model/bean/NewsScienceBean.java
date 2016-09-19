@@ -130,6 +130,15 @@ public class NewsScienceBean {
         private String vdot;
         private String monitorClickUrl;
         private List<String> res_url;
+        private int imgType;
+
+        public int getImgType() {
+            return imgType;
+        }
+
+        public void setImgType(int imgType) {
+            this.imgType = imgType;
+        }
 
         public int getMonitorReplaceDeviceId() {
             return monitorReplaceDeviceId;

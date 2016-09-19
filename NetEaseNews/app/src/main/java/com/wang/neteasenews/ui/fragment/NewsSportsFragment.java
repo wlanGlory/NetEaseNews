@@ -12,8 +12,11 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsSportsBean;
+import com.wang.neteasenews.model.net.VolleyInstance;
+import com.wang.neteasenews.model.net.VolleyResult;
 import com.wang.neteasenews.ui.adapter.ChosenAdapter;
 import com.wang.neteasenews.ui.adapter.NewsSportsAdapter;
+import com.wang.neteasenews.utils.AllConstantValues;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +26,10 @@ import java.util.List;
  * 新闻界面体育部分
  */
 public class NewsSportsFragment extends AbsBaseFragment {
-    private String url = "http://c.3g.163.com/nc/article/list/T1348649079062/0-20.html";
+
     private ListView listView;
     private NewsSportsAdapter newsSportAdapter;
-    private RequestQueue queue;
+
 
     public static NewsSportsFragment newInstance() {
         
@@ -51,23 +54,39 @@ public class NewsSportsFragment extends AbsBaseFragment {
 
     @Override
     protected void initDatas() {
-        queue = Volley.newRequestQueue(context);
-        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
+
+
+        VolleyInstance.getInstance().setRequset(AllConstantValues.SPORTSURL, new VolleyResult() {
             @Override
-            public void onResponse(String response) {
-//                Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+            public void success(String resultStr) {
                 Gson gson = new Gson();
-                NewsSportsBean newsSportsBean = gson.fromJson(response,NewsSportsBean.class);
+                NewsSportsBean newsSportsBean = gson.fromJson(resultStr,NewsSportsBean.class);
                 List<NewsSportsBean.T1348649079062Bean> datas = newsSportsBean.getT1348649079062();
-               newsSportAdapter.setDatas(datas);
+                newsSportAdapter.setDatas(datas);
             }
-        }, new Response.ErrorListener() {
+
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void failure() {
 
             }
         });
-        queue.add(sr);
+//        queue = Volley.newRequestQueue(context);
+//        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+////                Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+//                Gson gson = new Gson();
+//                NewsSportsBean newsSportsBean = gson.fromJson(response,NewsSportsBean.class);
+//                List<NewsSportsBean.T1348649079062Bean> datas = newsSportsBean.getT1348649079062();
+//               newsSportAdapter.setDatas(datas);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//
+//            }
+//        });
+//        queue.add(sr);
 
     }
 

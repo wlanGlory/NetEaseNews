@@ -3,53 +3,54 @@ package com.wang.neteasenews.model.bean;
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/16.
- * 新闻界面体育部分实体类
+ * Created by dllo on 16/9/19.
+ * 新闻界面时尚实体类
  */
-public class NewsSportsBean {
+public class NewsFashionBean {
 
     /**
-     * postid : PHOT4GP8000528F9
-     * hasCover : false
+     * postid : PHOT34IB002625A2
+     * hasCover : true
      * hasHead : 1
-     * replyCount : 2566
+     * replyCount : 5
      * hasImg : 1
      * digest :
      * hasIcon : true
-     * docid : 9IG74V5H00963VRO_C12P4D4TbjyexiangupdateDoc
-     * title : 狂乱的赛马场:走光频上演 约pao好地点?
+     * docid : 9IG74V5H00963VRO_C19O5TASapwangupdateDoc
+     * title : 英国皇室最爱的Mulberry也走实用主义路线了
      * order : 1
-     * priority : 249
-     * lmodify : 2016-09-16 14:51:23
-     * boardid : sports2_bbs
-     * ads : [{"title":"巴西美臀小姐乱入胸袭球员 全场都惊呆了","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/3dbdec7a383c464b87f5ab46cc65c24720160915144546.jpeg","subtitle":"","url":"00C90005|148250"}]
-     * photosetID : 28F90005|148264
+     * priority : 190
+     * lmodify : 2016-09-19 08:40:08
+     * boardid : photoview_bbs
+     * wap_portal : [{"title":"美妆试用","subtitle":"Free Trial","imgsrc":"http://img2.cache.netease.com/m/newsapp/Trial.png","url":"http://lady.163.com/special/beauty/2015xinpin01.html"},{"title":"时尚直播","subtitle":"Fashion Live","imgsrc":"http://img2.cache.netease.com/m/newsapp/FashionLive.png","url":"http://3g.163.com/ntes/special/00340EPA/wapSpecialModule.html?sid=S1449738449563"},{"title":"星座运程","subtitle":"Horoscope","imgsrc":"http://img2.cache.netease.com/m/newsapp/Horoscope.png","url":"http://lady.163.com/special/sense/yunshi.html"}]
+     * ads : [{"title":"叙利亚建儿童乐园 用火箭弹残骸做秋千","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/5101fb1e456a4636910fb661d2d6658d20160919084633.jpeg","subtitle":"","url":"00AO0001|2198841"},{"title":"受台风影响 上海黄浦江水位沿线超警戒","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/123bf85989d54dd985d7359ab001f0c720160919073815.jpeg","subtitle":"","url":"00AP0001|2198806"},{"docid":"C198F2UI05169QC9","title":"他们如此刁难空姐 丢人\"丢到了天上\"","tag":"doc","imgsrc":"http://cms-bucket.nosdn.127.net/047c55f5e78a48ff9880a9a8c69622ff20160918204230.jpeg","subtitle":"","url":"C198F2UI05169QC9"},{"title":"乌克兰民众冲撞俄使馆 抗议俄杜马选举","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/b24b0c3406754a0a95bf65cff588d16520160918213610.jpeg","subtitle":"","url":"00AO0001|2198790"},{"title":"女工每天绑铁丝4000根 为儿子挣彩礼钱","tag":"photoset","imgsrc":"http://cms-bucket.nosdn.127.net/83beec3ab6044a84b43c45362537907a20160918211027.jpeg","subtitle":"","url":"00AP0001|2198782"}]
+     * photosetID : 25A20026|102987
      * template : normal1
-     * votecount : 2182
-     * skipID : 28F90005|148264
-     * alias : Sports
+     * votecount : 2
+     * skipID : 25A20026|102987
+     * alias : Women
      * skipType : photoset
-     * cid : C1348649048655
+     * cid : C1348650356377
      * hasAD : 1
-     * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/13c3faefd5864d7e85b7971a457a537920160916080426.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/5737ebf3a44d4393b65edc7889945dd420160916080438.jpeg"}]
+     * imgextra : [{"imgsrc":"http://cms-bucket.nosdn.127.net/2772093a685549ab923e4a4c8b73c40820160919005850.jpeg"},{"imgsrc":"http://cms-bucket.nosdn.127.net/488a3bf5fb18469b89546325c9c3a27a20160919005908.jpeg"}]
      * source : 网易原创
-     * ename : tiyu
-     * imgsrc : http://cms-bucket.nosdn.127.net/9f7f1a30b2a943a39ceedce3e4b5e8b020160916145117.jpeg
-     * tname : 体育
-     * ptime : 2016-09-16 08:01:10
+     * ename : nvren
+     * imgsrc : http://cms-bucket.nosdn.127.net/89dfea138f3445d0b4dba086db1cf89220160919083957.jpeg
+     * tname : 时尚
+     * ptime : 2016-09-19 00:59:11
      */
 
-    private List<T1348649079062Bean> T1348649079062;
+    private List<T1348650593803Bean> T1348650593803;
 
-    public List<T1348649079062Bean> getT1348649079062() {
-        return T1348649079062;
+    public List<T1348650593803Bean> getT1348650593803() {
+        return T1348650593803;
     }
 
-    public void setT1348649079062(List<T1348649079062Bean> T1348649079062) {
-        this.T1348649079062 = T1348649079062;
+    public void setT1348650593803(List<T1348650593803Bean> T1348650593803) {
+        this.T1348650593803 = T1348650593803;
     }
 
-    public static class T1348649079062Bean {
+    public static class T1348650593803Bean {
         private String postid;
         private boolean hasCover;
         private int hasHead;
@@ -77,6 +78,8 @@ public class NewsSportsBean {
         private String tname;
         private String ptime;
 
+
+
         private int imgType;
 
         public int getImgType() {
@@ -88,16 +91,24 @@ public class NewsSportsBean {
         }
 
         /**
-         * title : 巴西美臀小姐乱入胸袭球员 全场都惊呆了
+         * title : 美妆试用
+         * subtitle : Free Trial
+         * imgsrc : http://img2.cache.netease.com/m/newsapp/Trial.png
+         * url : http://lady.163.com/special/beauty/2015xinpin01.html
+         */
+
+        private List<WapPortalBean> wap_portal;
+        /**
+         * title : 叙利亚建儿童乐园 用火箭弹残骸做秋千
          * tag : photoset
-         * imgsrc : http://cms-bucket.nosdn.127.net/3dbdec7a383c464b87f5ab46cc65c24720160915144546.jpeg
+         * imgsrc : http://cms-bucket.nosdn.127.net/5101fb1e456a4636910fb661d2d6658d20160919084633.jpeg
          * subtitle :
-         * url : 00C90005|148250
+         * url : 00AO0001|2198841
          */
 
         private List<AdsBean> ads;
         /**
-         * imgsrc : http://cms-bucket.nosdn.127.net/13c3faefd5864d7e85b7971a457a537920160916080426.jpeg
+         * imgsrc : http://cms-bucket.nosdn.127.net/2772093a685549ab923e4a4c8b73c40820160919005850.jpeg
          */
 
         private List<ImgextraBean> imgextra;
@@ -310,6 +321,14 @@ public class NewsSportsBean {
             this.ptime = ptime;
         }
 
+        public List<WapPortalBean> getWap_portal() {
+            return wap_portal;
+        }
+
+        public void setWap_portal(List<WapPortalBean> wap_portal) {
+            this.wap_portal = wap_portal;
+        }
+
         public List<AdsBean> getAds() {
             return ads;
         }
@@ -324,6 +343,45 @@ public class NewsSportsBean {
 
         public void setImgextra(List<ImgextraBean> imgextra) {
             this.imgextra = imgextra;
+        }
+
+        public static class WapPortalBean {
+            private String title;
+            private String subtitle;
+            private String imgsrc;
+            private String url;
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getSubtitle() {
+                return subtitle;
+            }
+
+            public void setSubtitle(String subtitle) {
+                this.subtitle = subtitle;
+            }
+
+            public String getImgsrc() {
+                return imgsrc;
+            }
+
+            public void setImgsrc(String imgsrc) {
+                this.imgsrc = imgsrc;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
         }
 
         public static class AdsBean {

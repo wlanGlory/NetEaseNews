@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
 
-    android:layout_margin="5dp">
+    android:layout_margin="@dimen/popwindow_margin">
 
     <TextView
         android:id="@+id/popwindow_tv"
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:background="#9f2348"
-        android:padding="5dp"
+        android:background="@color/popwindow_background"
+        android:padding="@dimen/popwindow_padding"
         />
 </LinearLayout>

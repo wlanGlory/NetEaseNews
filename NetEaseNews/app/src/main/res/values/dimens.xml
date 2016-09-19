@@ -2,4 +2,48 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--新闻界面(activity_main)-->
+    <dimen name="divide_line">1dp</dimen>
+    <dimen name="tablayout_height">40dp</dimen>
+
+    <!--精选界面 (fragment_chosen)-->
+    <dimen name="margin_top">10dp</dimen>
+
+    <!--新闻界面标题栏界面(fragment_news)-->
+    <dimen name="title_height">40dp</dimen>
+    <dimen name="img1_margin_left">10dp</dimen>
+    <dimen name="img1_margin_top">10dp</dimen>
+    <dimen name="img2_margin_left">200dp</dimen>
+    <dimen name="img2_margin_top">10dp</dimen>
+    <dimen name="img3_margin_right">10dp</dimen>
+    <dimen name="img3_margin_top">10dp</dimen>
+    <dimen name="img4_margin_right">15dp</dimen>
+    <dimen name="img4_margin_top">15dp</dimen>
+    <!--话题界面标题栏图标(fragment_topic)-->
+    <dimen name="topic_img1_margin_left">90dp</dimen>
+    <dimen name="topic_img2_margin_left">30dp</dimen>
+    <!--美女行布局(item_beauty)-->
+    <dimen name="beauty_margin">10dp</dimen>
+    <dimen name="beauty_margin_left">10dp</dimen>
+    <dimen name="beauty_view_height">5dp</dimen>
+    <dimen name="beauty_view_margin">10dp</dimen>
+    <dimen name="beauty_bad_margin_left">10dp</dimen>
+    <!--直播界面行布局(item_live)-->
+    <dimen name="live_title_margin_left">10dp</dimen>
+    <dimen name="live_title_margin_top">5dp</dimen>
+    <dimen name="live_img_margin_top">-30dp</dimen>
+    <dimen name="live_img_margin_right">10dp</dimen>
+    <dimen name="live_img_margin_left">10dp</dimen>
+    <dimen name="live_source_margin_top">-30dp</dimen>
+    <dimen name="live_source_margin_left">10dp</dimen>
+    <dimen name="live_video_margin_right">10dp</dimen>
+    <dimen name="live_video_margin_bottom">10dp</dimen>
+    <dimen name="live_video_margin_top">-30dp</dimen>
+    <dimen name="live_date_margin_top">-30dp</dimen>
+    <!--popwindow界面(item_popwindow)-->
+    <dimen name="popwindow_padding">5dp</dimen>
+    <dimen name="popwindow_margin">5dp</dimen>
+
+
+    
 </resources>

@@ -12,28 +12,28 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
-import com.wang.neteasenews.model.bean.NewsSportsBean;
+import com.wang.neteasenews.model.bean.NewsFashionBean;
 
 import java.util.List;
 
 /**
  * Created by dllo on 16/9/14.
- * 体育适配器类
+ * 时尚适配器类
  */
-public class NewsSportsAdapter extends BaseAdapter {
+public class NewsFashionAdapter extends BaseAdapter {
     private Context context;
-    private List<NewsSportsBean.T1348649079062Bean> datas;
+    private List<NewsFashionBean.T1348650593803Bean> datas;
 
     private static final int TYPE_ONE_IMG_LEFT = 0;
     private static final int TYPE_ONE_IMG = 1;
     private static final int TYPE_THREE_IMG = 2;
     private static final int TYPE_HEAD_IMG = 3;
 
-    public NewsSportsAdapter(Context context) {
+    public NewsFashionAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<NewsSportsBean.T1348649079062Bean> datas) {
+    public void setDatas(List<NewsFashionBean.T1348650593803Bean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
@@ -58,7 +58,7 @@ public class NewsSportsAdapter extends BaseAdapter {
         if(datas.get(position).getOrder() == 1){
             return TYPE_HEAD_IMG;
         }
-        else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+       else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
             Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
         }
@@ -129,7 +129,7 @@ public class NewsSportsAdapter extends BaseAdapter {
             }
 
         }
-        NewsSportsBean.T1348649079062Bean bean = datas.get(position);
+        NewsFashionBean.T1348650593803Bean bean = datas.get(position);
         switch (type) {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
@@ -232,63 +232,5 @@ public class NewsSportsAdapter extends BaseAdapter {
             headImg = (ImageView) view.findViewById(R.id.head_list_img);
         }
     }
-//    private Context context;
-//    private List<NewsSportsBean.T1348649079062Bean> datas;
-//
-//
-//    public NewsSportsAdapter(Context context) {
-//        this.context = context;
-//    }
-//
-//
-//    public void setDatas(List<NewsSportsBean.T1348649079062Bean> datas) {
-//        this.datas = datas;
-//        notifyDataSetChanged();
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return datas == null ? 0 : datas.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return datas == null ? null : datas.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return position;
-//    }
-//
-//
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        ChosenViewHolder holder = null;
-//        if (convertView == null) {
-//            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-//            holder = new ChosenViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ChosenViewHolder) convertView.getTag();
-//        }
-//        NewsSportsBean.T1348649079062Bean bean = datas.get(position);
-//        if (bean != null) {
-//            holder.titleTv.setText(bean.getTitle());
-//            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//
-//        }
-//        return convertView;
-//    }
-//
-//    private class ChosenViewHolder {
-//        TextView titleTv;
-//        ImageView imgIv;
-//
-//        public ChosenViewHolder(View view) {
-//            titleTv = (TextView) view.findViewById(R.id.topline_title);
-//            imgIv = (ImageView) view.findViewById(R.id.topline_img);
-//        }
-//    }
+
 }
