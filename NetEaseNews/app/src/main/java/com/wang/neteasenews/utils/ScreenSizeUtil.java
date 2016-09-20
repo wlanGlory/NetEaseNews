@@ -25,17 +25,17 @@ public class ScreenSizeUtil {
         return metrics.heightPixels;
     }
 
-//    public static int getScreenSize(Context context, int state) {
-//        WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-//        DisplayMetrics metrics = new DisplayMetrics();
-//        manager.getDefaultDisplay().getMetrics(metrics);
-//        switch (state) {
-//            case 1:
-//                return metrics.widthPixels;
-//            case 2:
-//                return metrics.heightPixels;
-//            default:
-//                return metrics.heightPixels;
-//        }
-//    }
+    public static int getScreenSize(Context context, int state) {
+        WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics metrics = new DisplayMetrics();
+        manager.getDefaultDisplay().getMetrics(metrics);
+        switch (state) {
+            case 1:
+                return metrics.widthPixels;
+            case 2:
+                return metrics.heightPixels;
+            default:
+                return metrics.heightPixels;
+        }
+    }
 }

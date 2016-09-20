@@ -13,4 +13,8 @@
     <!--popwindow界面(item_popwindow)-->
     <color name="popwindow_background">#1934e2</color>
 
+
+    <!--新闻界面娱乐部分轮播图-->
+    <color name="descript_color">#92969595</color>
+
 </resources>

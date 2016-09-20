@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
 import com.wang.neteasenews.model.bean.NewsSportsBean;
+import com.wang.neteasenews.utils.ScreenSizeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +60,7 @@ public class ChosenAdapter extends BaseAdapter {
         if(datas.get(position).getOrder() == 1){
             return TYPE_HEAD_IMG;
         }
-       else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+        else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
             Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
         }
@@ -85,6 +86,8 @@ public class ChosenAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        int width = ScreenSizeUtil.getScreenWidth(context);
+        int height = ScreenSizeUtil.getScreenHeight(context);
         ChosenViewHolder holder = null;
         ChosenOneViewHolder oneHolder = null;
         ChosenThreeViewHolder threeHolder = null;
@@ -134,7 +137,7 @@ public class ChosenAdapter extends BaseAdapter {
         switch (type) {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width/4,height/8).into(holder.imgIv);
 //                holder.sourceTv.setText(bean.getSource());
                 break;
             case TYPE_ONE_IMG:
@@ -144,18 +147,18 @@ public class ChosenAdapter extends BaseAdapter {
                 break;
             case TYPE_THREE_IMG:
                 threeHolder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).into(threeHolder.imgIv);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width/3,height/6).into(threeHolder.imgIv);
                 if (!bean.getImgextra().get(0).getImgsrc().isEmpty()) {
-                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).into(threeHolder.iv1);
+                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv1);
                 }
                 if (!bean.getImgextra().get(1).getImgsrc().isEmpty()) {
 
-                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).into(threeHolder.iv2);
+                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv2);
                 }
 //                threeHolder.sourceTv.setText(bean.getSource());
                 break;
             case TYPE_HEAD_IMG:
-                Picasso.with(context).load(bean.getImgsrc()).into(headViewHolder.headImg);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
         }
 
 //        if (convertView == null) {

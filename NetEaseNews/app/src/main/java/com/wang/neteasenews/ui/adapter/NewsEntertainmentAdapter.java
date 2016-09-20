@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
 import com.wang.neteasenews.model.bean.NewsEntertainmentBean;
+import com.wang.neteasenews.utils.ScreenSizeUtil;
 
 import java.util.List;
 
@@ -80,6 +81,8 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        int height = ScreenSizeUtil.getScreenHeight(context);
+        int width = ScreenSizeUtil.getScreenWidth(context);
         ChosenViewHolder holder = null;
         ChosenOneViewHolder oneHolder = null;
         ChosenThreeViewHolder threeHolder = null;
@@ -89,6 +92,8 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
             switch (type) {
                 case TYPE_ONE_IMG_LEFT:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
+
+
                     holder = new ChosenViewHolder(convertView);
                     convertView.setTag(holder);
                     break;
@@ -99,6 +104,12 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                     break;
                 case TYPE_THREE_IMG:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_topline_three, parent, false);
+//                    int height = ScreenSizeUtil.getScreenHeight(context);
+//                    int width = ScreenSizeUtil.getScreenWidth(context);
+//                    ViewGroup.LayoutParams params = convertView.getLayoutParams();
+//                    params.height = height/5;
+//                    params.width = width/3;
+//                    convertView.setLayoutParams(params);
                     threeHolder = new ChosenThreeViewHolder(convertView);
                     convertView.setTag(threeHolder);
                     break;
@@ -127,31 +138,34 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
         }
 
         NewsEntertainmentBean.T1348648517839Bean bean = datas.get(position);
-        switch (type) {
-            case TYPE_ONE_IMG_LEFT:
-                holder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//                holder.sourceTv.setText(bean.getSource());
-                break;
-            case TYPE_ONE_IMG:
-                oneHolder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).into(oneHolder.imgIv);
-//                oneHolder.sourceTv.setText(bean.getSource());
-                break;
-            case TYPE_THREE_IMG:
-                threeHolder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).into(threeHolder.imgIv);
-                if (!bean.getImgextra().get(0).getImgsrc().isEmpty()) {
-                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).into(threeHolder.iv1);
-                }
-                if (!bean.getImgextra().get(1).getImgsrc().isEmpty()) {
+        if(bean!=null){
 
-                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).into(threeHolder.iv2);
-                }
+            switch (type) {
+                case TYPE_ONE_IMG_LEFT:
+                    holder.titleTv.setText(bean.getTitle());
+                    Picasso.with(context).load(bean.getImgsrc()).resize(width*1/4,height/8).into(holder.imgIv);
+//                holder.sourceTv.setText(bean.getSource());
+                    break;
+                case TYPE_ONE_IMG:
+                    oneHolder.titleTv.setText(bean.getTitle());
+                    Picasso.with(context).load(bean.getImgsrc()).into(oneHolder.imgIv);
+//                oneHolder.sourceTv.setText(bean.getSource());
+                    break;
+                case TYPE_THREE_IMG:
+                    threeHolder.titleTv.setText(bean.getTitle());
+                    Picasso.with(context).load(bean.getImgsrc()).into(threeHolder.imgIv);
+                    if (bean.getImgextra()!=null) {
+                        Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).into(threeHolder.iv1);
+                    }
+                    if (bean.getImgextra()!=null) {
+
+                        Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).into(threeHolder.iv2);
+                    }
 //                threeHolder.sourceTv.setText(bean.getSource());
-                break;
-            case TYPE_HEAD_IMG:
-                Picasso.with(context).load(bean.getImgsrc()).into(headViewHolder.headImg);
+                    break;
+                case TYPE_HEAD_IMG:
+                    Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
+            }
         }
 
         return convertView;

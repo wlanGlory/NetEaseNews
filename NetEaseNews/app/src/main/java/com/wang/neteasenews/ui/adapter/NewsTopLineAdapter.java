@@ -1,6 +1,7 @@
 package com.wang.neteasenews.ui.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,25 +12,25 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
-import com.wang.neteasenews.model.bean.NewsFinanceBean;
-import com.wang.neteasenews.ui.fragment.NewsFinanceFragment;
+import com.wang.neteasenews.model.bean.NewsTopLineBean;
 import com.wang.neteasenews.utils.ScreenSizeUtil;
 
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/19.
- * 新闻界面财经适配器
+ * Created by dllo on 16/9/14.
+ * 头条适配器类
  */
-public class NewsFinanceAdapter extends BaseAdapter{
+public class NewsTopLineAdapter extends BaseAdapter {
     private Context context;
-    private List<NewsFinanceBean.T1348648756099Bean> datas;
+    private List<NewsTopLineBean.T1348647909107Bean> datas;
 
-    public NewsFinanceAdapter(Context context) {
+
+    public NewsTopLineAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<NewsFinanceBean.T1348648756099Bean> datas) {
+    public void setDatas(List<NewsTopLineBean.T1348647909107Bean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
@@ -49,20 +50,23 @@ public class NewsFinanceAdapter extends BaseAdapter{
         return position;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        int height = ScreenSizeUtil.getScreenHeight(context);
         int width = ScreenSizeUtil.getScreenWidth(context);
-        NewsFinanceViewHolder holder = null;
+        int height = ScreenSizeUtil.getScreenHeight(context);
+
+        ChosenViewHolder holder = null;
+
         if (convertView == null) {
 
             convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-            holder = new NewsFinanceViewHolder(convertView);
+            holder = new ChosenViewHolder(convertView);
             convertView.setTag(holder);
         } else {
-            holder = (NewsFinanceViewHolder) convertView.getTag();
+            holder = (ChosenViewHolder) convertView.getTag();
         }
-        NewsFinanceBean.T1348648756099Bean bean = datas.get(position);
+        NewsTopLineBean.T1348647909107Bean bean = datas.get(position);
         if (bean != null) {
             holder.titleTv.setText(bean.getTitle());
             Picasso.with(context).load(bean.getImgsrc()).resize(width/4,height/8).into(holder.imgIv);
@@ -72,17 +76,20 @@ public class NewsFinanceAdapter extends BaseAdapter{
         return convertView;
     }
 
+    /**
+     * 左侧一小图行布局缓存类
+     */
 
-
-    private class NewsFinanceViewHolder {
+    private class ChosenViewHolder {
         TextView titleTv;
         ImageView imgIv;
         TextView sourceTv;
 
-        public NewsFinanceViewHolder(View view) {
+        public ChosenViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_title);
             imgIv = (ImageView) view.findViewById(R.id.topline_img);
             sourceTv = (TextView) view.findViewById(R.id.topline_source);
         }
     }
+
 }

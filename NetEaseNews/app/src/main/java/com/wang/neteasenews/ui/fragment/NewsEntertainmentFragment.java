@@ -25,7 +25,6 @@ import java.util.List;
  * Created by dllo on 16/9/16.
  */
 public class NewsEntertainmentFragment extends AbsBaseFragment {
-
     private ListView listView;
     private NewsEntertainmentAdapter newsEntertainmentAdapter;
 
@@ -69,24 +68,6 @@ public class NewsEntertainmentFragment extends AbsBaseFragment {
             }
         });
 
-//        queue = Volley.newRequestQueue(context);
-//        StringRequest sr = new StringRequest(AllConstantValues.ENTERTAINMENTURL, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                Log.d("NewsEntertainmentFragme", response);
-//
-//                Gson gson = new Gson();
-//                NewsEntertainmentBean bean = gson.fromJson(response,NewsEntertainmentBean.class);
-//                List<NewsEntertainmentBean.T1348648517839Bean> datas = bean.getT1348648517839();
-//                newsEntertainmentAdapter.setDatas(datas);
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d("NewsEntertainmentFragme", "错误");
-//            }
-//        });
-//        queue.add(sr);
 
     }
 }

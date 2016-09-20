@@ -76,7 +76,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 //        });
         datas = new ArrayList<>();
 
-        datas.add(NewsChosenFragment.newInstance());
+        datas.add(NewsTopLineFragment.newInstance());
         datas.add(NewsChosenFragment.newInstance());
         datas.add(NewsEntertainmentFragment.newInstance());
         datas.add(NewsSportsFragment.newInstance());

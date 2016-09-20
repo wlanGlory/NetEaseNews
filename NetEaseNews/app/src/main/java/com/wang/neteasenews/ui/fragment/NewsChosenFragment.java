@@ -83,22 +83,6 @@ public class NewsChosenFragment extends AbsBaseFragment {
 
             }
         });
-//        queue = Volley.newRequestQueue(context);
-//        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//
-//                Gson gson = new Gson();
-//                NewsChosenBean newsChosenBean = gson.fromJson(response, NewsChosenBean.class);
-//                List<NewsChosenBean.T1467284926140Bean> datas = newsChosenBean.getT1467284926140();
-//                chosenAdapter.setDatas(datas);
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//        queue.add(sr);
+
     }
 }
