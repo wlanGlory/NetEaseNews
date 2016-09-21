@@ -147,10 +147,10 @@ public class NewsFashionAdapter extends BaseAdapter {
             case TYPE_THREE_IMG:
                 threeHolder.titleTv.setText(bean.getTitle());
                 Picasso.with(context).load(bean.getImgsrc()).resize(width/3,height/6).into(threeHolder.imgIv);
-                if (!bean.getImgextra().get(0).getImgsrc().isEmpty()) {
+                if (bean.getImgextra()!=null&&!bean.getImgextra().get(0).getImgsrc().isEmpty()) {
                     Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv1);
                 }
-                if (!bean.getImgextra().get(1).getImgsrc().isEmpty()) {
+                if (bean.getImgextra()!=null&&!bean.getImgextra().get(1).getImgsrc().isEmpty()) {
 
                     Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv2);
                 }
@@ -160,21 +160,6 @@ public class NewsFashionAdapter extends BaseAdapter {
                 Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
         }
 
-//        if (convertView == null) {
-//
-//            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-//            holder = new ChosenViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ChosenViewHolder) convertView.getTag();
-//        }
-//        NewsChosenBean.T1467284926140Bean bean = datas.get(position);
-//        if (bean != null) {
-//            holder.titleTv.setText(bean.getTitle());
-//            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//            holder.sourceTv.setText(bean.getSource());
-//
-//        }
         return convertView;
     }
 

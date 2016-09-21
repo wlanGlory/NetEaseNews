@@ -148,18 +148,18 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                     break;
                 case TYPE_ONE_IMG:
                     oneHolder.titleTv.setText(bean.getTitle());
-                    Picasso.with(context).load(bean.getImgsrc()).into(oneHolder.imgIv);
+                    Picasso.with(context).load(bean.getImgsrc()).resize(width,height/4).into(oneHolder.imgIv);
 //                oneHolder.sourceTv.setText(bean.getSource());
                     break;
                 case TYPE_THREE_IMG:
                     threeHolder.titleTv.setText(bean.getTitle());
-                    Picasso.with(context).load(bean.getImgsrc()).into(threeHolder.imgIv);
+                    Picasso.with(context).load(bean.getImgsrc()).resize(width/3,height/6).into(threeHolder.imgIv);
                     if (bean.getImgextra()!=null) {
-                        Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).into(threeHolder.iv1);
+                        Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv1);
                     }
                     if (bean.getImgextra()!=null) {
 
-                        Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).into(threeHolder.iv2);
+                        Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv2);
                     }
 //                threeHolder.sourceTv.setText(bean.getSource());
                     break;

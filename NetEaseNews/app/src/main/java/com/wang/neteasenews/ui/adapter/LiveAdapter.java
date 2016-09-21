@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.LiveBean;
+import com.wang.neteasenews.utils.ScreenSizeUtil;
 
 import java.util.List;
 
@@ -56,6 +57,8 @@ public class LiveAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        int width = ScreenSizeUtil.getScreenWidth(context);
+        int height = ScreenSizeUtil.getScreenHeight(context);
         LiveViewHolder holder = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_live, parent, false);
@@ -70,7 +73,7 @@ public class LiveAdapter extends BaseAdapter {
         if (bean != null) {
             holder.titleTv.setText(bean.getTitle());
 
-            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
+            Picasso.with(context).load(bean.getImgsrc()).resize(width,height/4).into(holder.imgIv);
             holder.sourceTv.setText(bean.getSource());
             holder.tagTv.setText(bean.getTAGS());
             holder.ptimeTv.setText(bean.getSkipType());

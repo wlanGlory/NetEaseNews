@@ -56,17 +56,10 @@ public class NewsSportsAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if(datas.get(position).getOrder() == 1){
-            return TYPE_HEAD_IMG;
-        }
-        else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+        if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
             Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
-        }
-//        if (datas.get(position).getImgextra()!=null) {
-//            return TYPE_THREE_IMG;
-//        }
-        else if (datas.get(position).getImgType() == 1) {
+        } else if (datas.get(position).getImgType() == 1) {
 
             return TYPE_ONE_IMG;
 
@@ -80,7 +73,7 @@ public class NewsSportsAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return 4;
+        return 3;
     }
 
     @Override
@@ -90,7 +83,7 @@ public class NewsSportsAdapter extends BaseAdapter {
         ChosenViewHolder holder = null;
         ChosenOneViewHolder oneHolder = null;
         ChosenThreeViewHolder threeHolder = null;
-        ChosenHeadViewHolder headViewHolder = null;
+
         int type = getItemViewType(position);
         if (convertView == null) {
             switch (type) {
@@ -109,11 +102,7 @@ public class NewsSportsAdapter extends BaseAdapter {
                     threeHolder = new ChosenThreeViewHolder(convertView);
                     convertView.setTag(threeHolder);
                     break;
-                case TYPE_HEAD_IMG:
-                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list,parent,false);
-                    headViewHolder = new ChosenHeadViewHolder(convertView);
-                    convertView.setTag(headViewHolder);
-                    break;
+
 
             }
         } else {
@@ -127,8 +116,6 @@ public class NewsSportsAdapter extends BaseAdapter {
                 case TYPE_THREE_IMG:
                     threeHolder = (ChosenThreeViewHolder) convertView.getTag();
                     break;
-                case TYPE_HEAD_IMG:
-                    headViewHolder = (ChosenHeadViewHolder) convertView.getTag();
             }
 
         }
@@ -136,45 +123,29 @@ public class NewsSportsAdapter extends BaseAdapter {
         switch (type) {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).resize(width/4,height/8).into(holder.imgIv);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width / 4, height / 8).into(holder.imgIv);
 //                holder.sourceTv.setText(bean.getSource());
                 break;
             case TYPE_ONE_IMG:
                 oneHolder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).into(oneHolder.imgIv);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width,height/4).into(oneHolder.imgIv);
 //                oneHolder.sourceTv.setText(bean.getSource());
                 break;
             case TYPE_THREE_IMG:
                 threeHolder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).resize(width/3,height/6).into(threeHolder.imgIv);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width / 3, height / 6).into(threeHolder.imgIv);
                 if (!bean.getImgextra().get(0).getImgsrc().isEmpty()) {
-                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv1);
+                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width / 3, height / 6).into(threeHolder.iv1);
                 }
                 if (!bean.getImgextra().get(1).getImgsrc().isEmpty()) {
 
-                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv2);
+                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width / 3, height / 6).into(threeHolder.iv2);
                 }
 //                threeHolder.sourceTv.setText(bean.getSource());
                 break;
-            case TYPE_HEAD_IMG:
-                Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
         }
 
-//        if (convertView == null) {
-//
-//            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-//            holder = new ChosenViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ChosenViewHolder) convertView.getTag();
-//        }
-//        NewsChosenBean.T1467284926140Bean bean = datas.get(position);
-//        if (bean != null) {
-//            holder.titleTv.setText(bean.getTitle());
-//            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//            holder.sourceTv.setText(bean.getSource());
-//
-//        }
+
         return convertView;
     }
 
@@ -229,10 +200,11 @@ public class NewsSportsAdapter extends BaseAdapter {
     /**
      * 头布局
      */
-    private class ChosenHeadViewHolder{
+    private class ChosenHeadViewHolder {
         ImageView headImg;
+
         public ChosenHeadViewHolder(View view) {
-            headImg = (ImageView) view.findViewById(R.id.head_list_img);
+            headImg = (ImageView) view.findViewById(R.id.topline_two_img);
         }
     }
 //    private Context context;

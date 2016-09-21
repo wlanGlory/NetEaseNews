@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
 import com.wang.neteasenews.model.bean.NewsSportsBean;
+import com.wang.neteasenews.ui.fragment.NewsChosenFragment;
 import com.wang.neteasenews.utils.ScreenSizeUtil;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import java.util.List;
 public class ChosenAdapter extends BaseAdapter {
     private Context context;
     private List<NewsChosenBean.T1467284926140Bean> datas;
+
 
     private static final int TYPE_ONE_IMG_LEFT = 0;
     private static final int TYPE_ONE_IMG = 1;
@@ -57,10 +59,9 @@ public class ChosenAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if(datas.get(position).getOrder() == 1){
+        if (datas.get(position).getOrder() == 1) {
             return TYPE_HEAD_IMG;
-        }
-        else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
             Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
         }
@@ -111,7 +112,7 @@ public class ChosenAdapter extends BaseAdapter {
                     convertView.setTag(threeHolder);
                     break;
                 case TYPE_HEAD_IMG:
-                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list,parent,false);
+                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list, parent, false);
                     headViewHolder = new ChosenHeadViewHolder(convertView);
                     convertView.setTag(headViewHolder);
                     break;
@@ -134,48 +135,38 @@ public class ChosenAdapter extends BaseAdapter {
 
         }
         NewsChosenBean.T1467284926140Bean bean = datas.get(position);
+//        Log.d("ChosenAdapter", ""+bean.getReplyCount());
         switch (type) {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).resize(width/4,height/8).into(holder.imgIv);
-//                holder.sourceTv.setText(bean.getSource());
+                holder.commentTv.setText(bean.getReplyCount() + "跟帖");
+                Picasso.with(context).load(bean.getImgsrc()).resize(width / 4, height / 8).into(holder.imgIv);
+                holder.sourceTv.setText(bean.getSource());
+
                 break;
             case TYPE_ONE_IMG:
                 oneHolder.titleTv.setText(bean.getTitle());
                 Picasso.with(context).load(bean.getImgsrc()).into(oneHolder.imgIv);
-//                oneHolder.sourceTv.setText(bean.getSource());
+                oneHolder.sourceTv.setText(bean.getSource());
+                oneHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
                 break;
             case TYPE_THREE_IMG:
                 threeHolder.titleTv.setText(bean.getTitle());
-                Picasso.with(context).load(bean.getImgsrc()).resize(width/3,height/6).into(threeHolder.imgIv);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width / 3, height / 6).into(threeHolder.imgIv);
                 if (!bean.getImgextra().get(0).getImgsrc().isEmpty()) {
-                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv1);
+                    Picasso.with(context).load(bean.getImgextra().get(0).getImgsrc()).resize(width / 3, height / 6).into(threeHolder.iv1);
                 }
                 if (!bean.getImgextra().get(1).getImgsrc().isEmpty()) {
 
-                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv2);
+                    Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width / 3, height / 6).into(threeHolder.iv2);
                 }
-//                threeHolder.sourceTv.setText(bean.getSource());
+                threeHolder.sourceTv.setText(bean.getSource());
+                threeHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
                 break;
             case TYPE_HEAD_IMG:
-                Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
+                Picasso.with(context).load(bean.getImgsrc()).resize(width, height / 3).into(headViewHolder.headImg);
         }
 
-//        if (convertView == null) {
-//
-//            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-//            holder = new ChosenViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ChosenViewHolder) convertView.getTag();
-//        }
-//        NewsChosenBean.T1467284926140Bean bean = datas.get(position);
-//        if (bean != null) {
-//            holder.titleTv.setText(bean.getTitle());
-//            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//            holder.sourceTv.setText(bean.getSource());
-//
-//        }
         return convertView;
     }
 
@@ -187,11 +178,13 @@ public class ChosenAdapter extends BaseAdapter {
         TextView titleTv;
         ImageView imgIv;
         TextView sourceTv;
+        TextView commentTv;
 
         public ChosenViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_title);
             imgIv = (ImageView) view.findViewById(R.id.topline_img);
             sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            commentTv = (TextView) view.findViewById(R.id.topline_comment);
         }
     }
 
@@ -202,11 +195,13 @@ public class ChosenAdapter extends BaseAdapter {
         TextView titleTv;
         TextView sourceTv;
         ImageView imgIv;
+        TextView commentTv;
 
         public ChosenOneViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_two_title);
-            sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            sourceTv = (TextView) view.findViewById(R.id.topline_two_source);
             imgIv = (ImageView) view.findViewById(R.id.topline_two_img);
+            commentTv = (TextView) view.findViewById(R.id.topline_two_comment);
         }
     }
 
@@ -217,21 +212,24 @@ public class ChosenAdapter extends BaseAdapter {
         TextView titleTv;
         TextView sourceTv;
         ImageView imgIv, iv1, iv2;
+        TextView commentTv;
 
         public ChosenThreeViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_three_title);
-            sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            sourceTv = (TextView) view.findViewById(R.id.topline_three_source);
             imgIv = (ImageView) view.findViewById(R.id.topline_three_img);
             iv1 = (ImageView) view.findViewById(R.id.topline_three_img1);
             iv2 = (ImageView) view.findViewById(R.id.topline_three_img2);
+            commentTv = (TextView) view.findViewById(R.id.topline_three_comment);
         }
     }
 
     /**
      * 头布局
      */
-    private class ChosenHeadViewHolder{
+    private class ChosenHeadViewHolder {
         ImageView headImg;
+
         public ChosenHeadViewHolder(View view) {
             headImg = (ImageView) view.findViewById(R.id.head_list_img);
         }
