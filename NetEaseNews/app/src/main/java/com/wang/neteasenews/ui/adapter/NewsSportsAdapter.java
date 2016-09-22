@@ -57,14 +57,14 @@ public class NewsSportsAdapter extends BaseAdapter {
     @Override
     public int getItemViewType(int position) {
         if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
-            Log.d("zzz", "三张图片");
+//            Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
         } else if (datas.get(position).getImgType() == 1) {
 
             return TYPE_ONE_IMG;
 
         } else {
-            Log.d("zzz", "左侧图片");
+//            Log.d("zzz", "左侧图片");
             return TYPE_ONE_IMG_LEFT;
         }
 
@@ -124,12 +124,17 @@ public class NewsSportsAdapter extends BaseAdapter {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
                 Picasso.with(context).load(bean.getImgsrc()).resize(width / 4, height / 8).into(holder.imgIv);
-//                holder.sourceTv.setText(bean.getSource());
+                holder.sourceTv.setText(bean.getSource());
+                if(bean.getReplyCount() != 0){
+                   holder.commentTv.setText(bean.getReplyCount()+"跟帖");
+                }
+
                 break;
             case TYPE_ONE_IMG:
                 oneHolder.titleTv.setText(bean.getTitle());
                 Picasso.with(context).load(bean.getImgsrc()).resize(width,height/4).into(oneHolder.imgIv);
-//                oneHolder.sourceTv.setText(bean.getSource());
+                oneHolder.sourceTv.setText(bean.getSource());
+                oneHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
                 break;
             case TYPE_THREE_IMG:
                 threeHolder.titleTv.setText(bean.getTitle());
@@ -141,7 +146,8 @@ public class NewsSportsAdapter extends BaseAdapter {
 
                     Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width / 3, height / 6).into(threeHolder.iv2);
                 }
-//                threeHolder.sourceTv.setText(bean.getSource());
+                threeHolder.sourceTv.setText(bean.getSource());
+                threeHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
                 break;
         }
 
@@ -157,11 +163,14 @@ public class NewsSportsAdapter extends BaseAdapter {
         TextView titleTv;
         ImageView imgIv;
         TextView sourceTv;
+        TextView commentTv;
+
 
         public ChosenViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_title);
             imgIv = (ImageView) view.findViewById(R.id.topline_img);
             sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            commentTv = (TextView) view.findViewById(R.id.topline_comment);
         }
     }
 
@@ -172,11 +181,13 @@ public class NewsSportsAdapter extends BaseAdapter {
         TextView titleTv;
         TextView sourceTv;
         ImageView imgIv;
+        TextView commentTv;
 
         public ChosenOneViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_two_title);
-            sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            sourceTv = (TextView) view.findViewById(R.id.topline_two_source);
             imgIv = (ImageView) view.findViewById(R.id.topline_two_img);
+            commentTv = (TextView) view.findViewById(R.id.topline_two_comment);
         }
     }
 
@@ -187,13 +198,14 @@ public class NewsSportsAdapter extends BaseAdapter {
         TextView titleTv;
         TextView sourceTv;
         ImageView imgIv, iv1, iv2;
-
+        TextView commentTv;
         public ChosenThreeViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_three_title);
-            sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            sourceTv = (TextView) view.findViewById(R.id.topline_three_source);
             imgIv = (ImageView) view.findViewById(R.id.topline_three_img);
             iv1 = (ImageView) view.findViewById(R.id.topline_three_img1);
             iv2 = (ImageView) view.findViewById(R.id.topline_three_img2);
+            commentTv = (TextView) view.findViewById(R.id.topline_three_comment);
         }
     }
 
@@ -207,63 +219,5 @@ public class NewsSportsAdapter extends BaseAdapter {
             headImg = (ImageView) view.findViewById(R.id.topline_two_img);
         }
     }
-//    private Context context;
-//    private List<NewsSportsBean.T1348649079062Bean> datas;
-//
-//
-//    public NewsSportsAdapter(Context context) {
-//        this.context = context;
-//    }
-//
-//
-//    public void setDatas(List<NewsSportsBean.T1348649079062Bean> datas) {
-//        this.datas = datas;
-//        notifyDataSetChanged();
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return datas == null ? 0 : datas.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return datas == null ? null : datas.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return position;
-//    }
-//
-//
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        ChosenViewHolder holder = null;
-//        if (convertView == null) {
-//            convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-//            holder = new ChosenViewHolder(convertView);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (ChosenViewHolder) convertView.getTag();
-//        }
-//        NewsSportsBean.T1348649079062Bean bean = datas.get(position);
-//        if (bean != null) {
-//            holder.titleTv.setText(bean.getTitle());
-//            Picasso.with(context).load(bean.getImgsrc()).into(holder.imgIv);
-//
-//        }
-//        return convertView;
-//    }
-//
-//    private class ChosenViewHolder {
-//        TextView titleTv;
-//        ImageView imgIv;
-//
-//        public ChosenViewHolder(View view) {
-//            titleTv = (TextView) view.findViewById(R.id.topline_title);
-//            imgIv = (ImageView) view.findViewById(R.id.topline_img);
-//        }
-//    }
+
 }

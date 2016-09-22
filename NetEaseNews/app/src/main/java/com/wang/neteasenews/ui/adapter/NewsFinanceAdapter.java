@@ -67,6 +67,9 @@ public class NewsFinanceAdapter extends BaseAdapter{
             holder.titleTv.setText(bean.getTitle());
             Picasso.with(context).load(bean.getImgsrc()).resize(width/4,height/8).into(holder.imgIv);
             holder.sourceTv.setText(bean.getSource());
+            if(bean.getReplyCount() != 0){
+                holder.commentTv.setText(bean.getReplyCount()+"跟帖");
+            }
 
         }
         return convertView;
@@ -78,11 +81,13 @@ public class NewsFinanceAdapter extends BaseAdapter{
         TextView titleTv;
         ImageView imgIv;
         TextView sourceTv;
+        TextView commentTv;
 
         public NewsFinanceViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topline_title);
             imgIv = (ImageView) view.findViewById(R.id.topline_img);
             sourceTv = (TextView) view.findViewById(R.id.topline_source);
+            commentTv = (TextView) view.findViewById(R.id.topline_comment);
         }
     }
 }

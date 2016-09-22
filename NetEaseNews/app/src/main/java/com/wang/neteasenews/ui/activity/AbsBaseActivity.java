@@ -17,10 +17,14 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(setLayout());
         // 加动画 去标题栏 去电量栏
         // 订制流程
         // 初始化组件
+        initViews();
         // 初始化数据
+        initDatas();
     }
 
     /**

@@ -79,6 +79,7 @@ public class NewsSportsFragment extends AbsBaseFragment {
     public void onPause() {
         super.onPause();
         isRotate = false;
+        handler.removeCallbacks(rotateRunnable);
     }
 
     private void changePoints() {

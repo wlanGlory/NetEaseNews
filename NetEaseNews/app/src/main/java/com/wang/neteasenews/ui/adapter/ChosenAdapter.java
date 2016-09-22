@@ -62,7 +62,7 @@ public class ChosenAdapter extends BaseAdapter {
         if (datas.get(position).getOrder() == 1) {
             return TYPE_HEAD_IMG;
         } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
-            Log.d("zzz", "三张图片");
+
             return TYPE_THREE_IMG;
         }
 //        if (datas.get(position).getImgextra()!=null) {
@@ -73,7 +73,7 @@ public class ChosenAdapter extends BaseAdapter {
             return TYPE_ONE_IMG;
 
         } else {
-            Log.d("zzz", "左侧图片");
+
             return TYPE_ONE_IMG_LEFT;
         }
 
@@ -136,6 +136,8 @@ public class ChosenAdapter extends BaseAdapter {
         }
         NewsChosenBean.T1467284926140Bean bean = datas.get(position);
 //        Log.d("ChosenAdapter", ""+bean.getReplyCount());
+
+
         switch (type) {
             case TYPE_ONE_IMG_LEFT:
                 holder.titleTv.setText(bean.getTitle());
