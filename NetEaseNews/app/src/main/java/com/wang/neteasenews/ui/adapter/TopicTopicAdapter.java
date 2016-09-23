@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.TopicTopicBean;
+import com.wang.neteasenews.utils.ScreenSizeUtil;
 
 import java.util.List;
 
@@ -70,6 +71,8 @@ public class TopicTopicAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        int width = ScreenSizeUtil.getScreenWidth(context);
+        int height = ScreenSizeUtil.getScreenHeight(context);
         ZeroViewHolder zeroViewHolder = null;
         OneViewHolder oneViewHolder = null;
         int type = getItemViewType(position);
@@ -98,20 +101,32 @@ public class TopicTopicAdapter extends BaseAdapter {
         }
         // 设置行布局内容
         TopicTopicBean.DataBean.SubjectListBean bean = datas.get(position);
-
+//        List<TopicTopicBean.DataBean.SubjectListBean> listBeen = bean.getTalkPicture();
 
         switch (type){
             case TYPE_ZERO:
-                zeroViewHolder.titleTv.setText(bean.getName());
+                zeroViewHolder.titleTv.setText("#"+bean.getName()+"#");
                 zeroViewHolder.sourceTv.setText(bean.getClassification());
+                zeroViewHolder.commentTv.setText(bean.getConcernCount()+"关注");
+                zeroViewHolder.focusTv.setText(bean.getTalkCount()+"讨论");
+                zeroViewHolder.topicTv1.setText("\"\t"+bean.getTalkContent().get(0).getContent());
+                zeroViewHolder.topicTv2.setText("\"\t"+bean.getTalkContent().get(1).getContent());
                 Glide.with(context).load(bean.getTalkContent().get(0).getUserHeadPicUrl()).into(zeroViewHolder.img1);
                 Glide.with(context).load(bean.getTalkContent().get(1).getUserHeadPicUrl()).into(zeroViewHolder.img2);
 
                 break;
             case TYPE_ONE:
-                oneViewHolder.titleTv.setText(bean.getName());
+                oneViewHolder.titleTv.setText("#"+bean.getName()+"#");
                 oneViewHolder.sourceTv.setText(bean.getClassification());
-//                Glide.with(context).load(bean.getTalkPicture()).into(oneViewHolder.img1);
+//                Picasso.with(context).load(bean.getTalkPicture().get(0).toString()).resize(width/3,height/4).into(oneViewHolder.img1);
+//                Picasso.with(context).load(bean.getTalkPicture().get(1).toString()).resize(width/3,height/4).into(oneViewHolder.img1);
+//                Picasso.with(context).load(bean.getTalkPicture().get(2).toString()).resize(width/3,height/4).into(oneViewHolder.img1);
+                Glide.with(context).load(bean.getTalkPicture().get(0)).override(width/6,height/8).into(oneViewHolder.img2);
+                Glide.with(context).load(bean.getTalkPicture().get(1)).override(width/6,height/8).into(oneViewHolder.img2);
+                Glide.with(context).load(bean.getTalkPicture().get(2)).override(width/6,height/8).into(oneViewHolder.img3);
+                oneViewHolder.focusTv.setText(bean.getConcernCount()+"关注");
+                oneViewHolder.commentTv.setText(bean.getTalkCount()+"讨论");
+
                 break;
         }
 
@@ -124,24 +139,34 @@ public class TopicTopicAdapter extends BaseAdapter {
     class ZeroViewHolder{
 
         TextView titleTv,sourceTv;
+        TextView topicTv1,topicTv2;
         ImageView img1,img2;
+        TextView commentTv,focusTv;
         public ZeroViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topic_tech_title);
             sourceTv = (TextView) view.findViewById(R.id.topic_tech_source);
             img1 = (ImageView) view.findViewById(R.id.topic_tech_img1);
             img2 = (ImageView) view.findViewById(R.id.topic_tech_img2);
+            commentTv = (TextView) view.findViewById(R.id.topic_tech_comment);
+            focusTv = (TextView) view.findViewById(R.id.topic_tech_focus);
+            topicTv1 = (TextView) view.findViewById(R.id.topic_tech_img1_tv);
+            topicTv2 = (TextView) view.findViewById(R.id.topic_tech_img2_tv);
         }
     }
     class OneViewHolder{
         TextView titleTv,sourceTv;
-//        ImageView img1,img2,img3;
+        ImageView img1,img2,img3;
+        TextView focusTv,commentTv;
         public OneViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.topic_live_title);
             sourceTv = (TextView) view.findViewById(R.id.topic_live_source);
-//            img1 = (ImageView) view.findViewById(R.id.topic_live_img1);
-//            img2 = (ImageView) view.findViewById(R.id.topic_live_img2);
-//            img3 = (ImageView) view.findViewById(R.id.topic_live_img3);
+            img1 = (ImageView) view.findViewById(R.id.topic_live_img1);
+            img2 = (ImageView) view.findViewById(R.id.topic_live_img2);
+            img3 = (ImageView) view.findViewById(R.id.topic_live_img3);
+            focusTv = (TextView) view.findViewById(R.id.topic_live_focus);
+            commentTv = (TextView) view.findViewById(R.id.topic_live_comment);
         }
+
     }
 
 

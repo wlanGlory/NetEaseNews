@@ -43,5 +43,9 @@ public  class AllConstantValues {
      * 话题界面话题url
      */
     public static final String TOPICTOPICURL = "http://topic.comment.163.com/topic/list/subject/0-10.html";
+    /**
+     * 话题界面问吧url
+     */
+    public static final String TOPICQUESTIONURL = "http://c.3g.163.com/newstopic/list/expert/YWxs/0-10.html";
 
 }

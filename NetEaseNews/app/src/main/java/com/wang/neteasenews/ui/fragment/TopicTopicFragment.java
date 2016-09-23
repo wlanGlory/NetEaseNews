@@ -51,7 +51,6 @@ public class TopicTopicFragment extends AbsBaseFragment {
         VolleyInstance.getInstance().setRequset(AllConstantValues.TOPICTOPICURL, new VolleyResult() {
             @Override
             public void success(String resultStr) {
-//                Log.d("TopicTopicFragment", resultStr);
                 Gson gson = new Gson();
                 TopicTopicBean bean = gson.fromJson(resultStr,TopicTopicBean.class);
                 TopicTopicBean.DataBean beanList = bean.getData();

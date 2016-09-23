@@ -31,10 +31,6 @@ import java.util.List;
  * 新闻界面精选部分
  */
 public class NewsChosenFragment extends AbsBaseFragment {
-//    private String url = "http://c.m.163.com/nc/article/list/T1467284926140/0-20.html";
-//
-//    private String url = "http://c.3g.163.com/nc/article/list/T1467284926140/0-20.html";
-//    private String url = "http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html";
     private ListView listView;
     private ChosenAdapter chosenAdapter;
     private List<NewsChosenBean.T1467284926140Bean> datas;

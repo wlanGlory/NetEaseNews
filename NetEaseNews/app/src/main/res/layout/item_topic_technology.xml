@@ -11,11 +11,12 @@
         android:layout_margin="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/topic_tech_title"
@@ -23,45 +24,46 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="123456" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/topic_tech_img1"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp" />
+
                 <TextView
                     android:id="@+id/topic_tech_img1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="随便看看"
                     android:layout_gravity="center_vertical"
-                    />
+                    android:layout_marginLeft="5dp"
+                    android:text="随便看看" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/topic_tech_img2"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp" />
+
                 <TextView
                     android:id="@+id/topic_tech_img2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="随便看看"
                     android:layout_gravity="center_vertical"
-                    />
+                    android:layout_marginLeft="5dp"
+                    android:text="随便看看" />
 
             </LinearLayout>
 
@@ -84,6 +86,7 @@
                     android:text="|" />
 
                 <TextView
+                    android:id="@+id/topic_tech_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -96,28 +99,31 @@
                     android:text="|" />
 
                 <TextView
+                    android:id="@+id/topic_tech_focus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="245讨论" />
 
-                <TextView
-                    android:id="@+id/topic_tech_add_focus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="100dp"
-                    android:text="+ 关注" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/topic_tech_add_focus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@mipmap/add_focus" />
+                </RelativeLayout>
+
             </LinearLayout>
 
 
         </LinearLayout>
 
 
-
-
     </android.support.v7.widget.CardView>
-
-
 
 
 </LinearLayout>

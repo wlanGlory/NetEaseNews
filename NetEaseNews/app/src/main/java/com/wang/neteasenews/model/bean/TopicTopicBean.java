@@ -1,5 +1,6 @@
 package com.wang.neteasenews.model.bean;
 
+import java.sql.Array;
 import java.util.List;
 
 /**
@@ -187,15 +188,17 @@ public class TopicTopicBean {
             private int talkCount;
             private long createTime;
 
-            private String talkPicture;
-
-            public String getTalkPicture() {
+            public List getTalkPicture() {
                 return talkPicture;
             }
 
-            public void setTalkPicture(String talkPicture) {
+            public void setTalkPicture(List talkPicture) {
                 this.talkPicture = talkPicture;
             }
+
+            private List talkPicture;
+
+
 
             /**
              * talkId : 151807910458949632

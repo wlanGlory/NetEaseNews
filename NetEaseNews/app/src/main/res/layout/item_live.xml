@@ -4,14 +4,16 @@
     android:layout_height="wrap_content"
     >
 
-    >
+
 
     <TextView
+
         android:textSize="16sp"
         android:textColor="@color/live_title"
         android:id="@+id/live_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginLeft="@dimen/live_title_margin_left"
         android:layout_marginTop="@dimen/live_title_margin_top"
         android:text="123465" />
@@ -33,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/live_img"
         android:layout_marginLeft="@dimen/live_source_margin_left"
+        android:textColor="#fff"
         android:text="123" />
 
 
@@ -52,7 +55,7 @@
         android:id="@+id/live_review_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:textColor="#fff"
         android:layout_alignTop="@id/live_video_img"
         android:layout_toLeftOf="@id/live_video_img"
         />
@@ -60,6 +63,7 @@
     <TextView
         android:id="@+id/live_time_tv"
         android:layout_width="wrap_content"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/live_review_tv"
         android:layout_toLeftOf="@id/live_review_tv"
@@ -69,6 +73,7 @@
         android:id="@+id/live_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginTop="@dimen/live_date_margin_top"
         android:layout_below="@id/live_img"
         android:layout_toLeftOf="@id/live_time_tv"
