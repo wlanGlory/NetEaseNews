@@ -32,6 +32,7 @@ public  class AllConstantValues {
     /**
      * 新闻界面财经url
      */
+
     public static final String FINANCEURL = "http://c.3g.163.com/nc/article/list/T1348648756099/0-20.html";
     /**
      * 新闻界面头条url
