@@ -7,10 +7,10 @@
 
     <com.wang.neteasenews.view.ReFlashListView
         android:id="@+id/entertainment_listview"
-        android:divider="@null"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </com.wang.neteasenews.view.ReFlashListView>
-
+    <!--android:divider="@null"-->
 </LinearLayout>

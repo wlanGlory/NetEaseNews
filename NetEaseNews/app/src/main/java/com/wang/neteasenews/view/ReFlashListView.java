@@ -22,6 +22,7 @@ import java.util.Date;
 
 /**
  * Created by dllo on 16/9/2.
+ * 上拉加载和下拉刷新listview
  */
 public class ReFlashListView extends ListView implements AbsListView.OnScrollListener {
 
@@ -36,7 +37,13 @@ public class ReFlashListView extends ListView implements AbsListView.OnScrollLis
     final int PULL = 1;//下拉状态
     final int RELESE = 2; // 松开可以刷新状态
     final int REFLASHING = 3; // 正在刷新状态
+    // adasdas
+    final int PUSH = 4;
+    int visibleItemCount;
+    int totalItemCount;
+    //
     IReflashListener iReflashListener; // 刷新数据的接口
+    private boolean flag;
 
     public ReFlashListView(Context context) {
         super(context);
@@ -89,11 +96,30 @@ public class ReFlashListView extends ListView implements AbsListView.OnScrollLis
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         this.scrollState = scrollState;
         Log.d("ReFlashListView", "scrollState" + scrollState);
+        if (scrollState == 1 && firstVisibleItem + visibleItemCount >= totalItemCount) {
+            Log.d("ReFlashListView", "totalItemCount:" + totalItemCount);
+            flag = true;
+            if (totalItemCount % 10 != 0 && flag) {
+                iReflashListener.onReflash(totalItemCount - 1, 20);
+                flag = false;
+
+            } else{
+                iReflashListener.onReflash(totalItemCount, 20);
+                flag = false;
+
+            }
+
+            if (totalItemCount == totalItemCount + 20 || totalItemCount == totalItemCount + 19){
+                flag = true;
+            }
+        }
     }
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         this.firstVisibleItem = firstVisibleItem;
+        this.visibleItemCount = visibleItemCount;
+        this.totalItemCount = totalItemCount;
     }
 
     @Override
@@ -117,7 +143,6 @@ public class ReFlashListView extends ListView implements AbsListView.OnScrollLis
                     // 加载最新数据
                     reflashViewByState();
                     iReflashListener.onReflash();
-
                 } else if (state == PULL) {
                     state = NONE;
                     isRemark = false;
@@ -227,7 +252,11 @@ public class ReFlashListView extends ListView implements AbsListView.OnScrollLis
      * 刷新数据接口
      */
     public interface IReflashListener {
+        void onReflash(int start, int end);
+
         void onReflash();
+
     }
+
 
 }

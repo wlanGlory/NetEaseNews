@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/img4_margin_right"
             android:layout_marginTop="@dimen/img4_margin_top"
-            android:src="@mipmap/pull_down" />
+            android:src="@mipmap/icon_down" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

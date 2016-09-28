@@ -8,11 +8,13 @@
 
     <TextView
         android:id="@+id/popwindow_tv"
-
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:background="@color/popwindow_background"
+        android:text="456"
+        android:textColor="#1e1111"
+        android:textSize="18sp"
+        android:background="@drawable/person_shape"
         android:padding="@dimen/popwindow_padding"
         />
 </LinearLayout>

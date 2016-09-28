@@ -3,13 +3,17 @@ package com.wang.neteasenews.ui.fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsSportsBean;
 import com.wang.neteasenews.model.net.VolleyInstance;
@@ -18,6 +22,11 @@ import com.wang.neteasenews.ui.adapter.NewsSportsAdapter;
 import com.wang.neteasenews.ui.adapter.NewsSportsRotateVpAdapter;
 import com.wang.neteasenews.utils.AllConstantValues;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -38,6 +47,10 @@ public class NewsSportsFragment extends AbsBaseFragment {
     private ListView listView;
     private NewsSportsAdapter newsSportAdapter;
     private List<NewsSportsBean.T1348649079062Bean> sportDatas;
+
+    //=========================
+    private TextView titleTv;
+    private ImageView Iv;
 
 
     public static NewsSportsFragment newInstance() {
@@ -60,7 +73,11 @@ public class NewsSportsFragment extends AbsBaseFragment {
         //===================================================
         viewPager = (ViewPager) headView.findViewById(R.id.rotate_vp);
         pointTl = (LinearLayout) headView.findViewById(R.id.rotate_point_container);
+//        titleTv = (TextView) headView.findViewById(R.id.head_list_title);
+//        Iv = (ImageView) headView.findViewById(R.id.head_list_img);
+
         vpAdapter = new NewsSportsRotateVpAdapter(sportDatas,context);
+//        Picasso.with(context).load(sportDatas.get(0).getAds().get(0).getTitle()).into(titleTv);
         viewPager.setAdapter(vpAdapter);
         //===================================================
         // 在此处添加对头布局或者布局内的组件的设置
@@ -149,15 +166,21 @@ public class NewsSportsFragment extends AbsBaseFragment {
             public void success(String resultStr) {
                 Gson gson = new Gson();
                 NewsSportsBean newsSportsBean = gson.fromJson(resultStr,NewsSportsBean.class);
+                //=====================================================
+
+
+
+                //=====================================================
                 sportDatas = newsSportsBean.getT1348649079062();
+
                 newsSportAdapter.setDatas(sportDatas);
                 // 获取到轮播图数据后再初始化轮播图
                 vpAdapter.setDatas(sportDatas);
                 viewPager.setCurrentItem(sportDatas.size()*100);
                 handler = new Handler();
                 startRotate();
-               // addPoints();
-                //changePoints();
+                addPoints();
+                changePoints();
             }
 
             @Override

@@ -22,6 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/topline_img"
             android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:textSize="15sp"
             android:layout_toRightOf="@id/topline_img"
             android:text="456" />
 

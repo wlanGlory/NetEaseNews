@@ -68,11 +68,40 @@ public class NewsTopLineAdapter extends BaseAdapter {
         }
         NewsTopLineBean.T1348647909107Bean bean = datas.get(position);
         if (bean != null) {
+            int wan = 0;
+            int qian = 0;
+            int bai = 0;
+            double replaycount = 0;
             holder.titleTv.setText(bean.getTitle());
             Picasso.with(context).load(bean.getImgsrc()).resize(width/4,height/8).into(holder.imgIv);
             holder.sourceTv.setText(bean.getSource());
             if(bean.getReplyCount()!= 0){
-                holder.commentTv.setText(bean.getReplyCount()+"跟帖");
+                //===============================================================
+
+                int count = bean.getReplyCount();
+                if(count != 0 && count > 10000){
+                    wan = count/10000;
+                    qian = count%10000/1000;
+                    bai = count%10000%1000/100;
+                    if(bai >= 5){
+                        int rqian = qian + 1;
+                        if(rqian != 10){
+                            replaycount = wan + rqian*0.1;
+                            holder.commentTv.setText(replaycount+"万跟帖");
+                        }else {
+                            replaycount = wan+1;
+                            holder.commentTv.setText(replaycount+"万跟帖");
+                        }
+                    }
+
+                }else {
+                    holder.commentTv.setText(count+"跟帖");
+                }
+
+
+
+                //===============================================================
+//                holder.commentTv.setText(bean.getReplyCount()+"跟帖");
             }
 
         }

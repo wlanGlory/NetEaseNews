@@ -40,6 +40,17 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public List<NewsEntertainmentBean.T1348648517839Bean> getDatas() {
+        return datas;
+    }
+
+    public void addDatas(List<NewsEntertainmentBean.T1348648517839Bean> datas) {
+        this.datas.addAll(datas);
+        notifyDataSetChanged();
+    }
+
+
+
     @Override
     public int getCount() {
         return datas == null ? 0 : datas.size();
@@ -58,10 +69,10 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
     @Override
     public int getItemViewType(int position) {
 
-
-        if (datas.get(position).getOrder() == 1) {
-            return TYPE_HEAD_IMG;
-        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+//        if (datas.get(position).getHasAD() == 1) {
+//            return TYPE_HEAD_IMG;
+//        } else
+        if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
 //            Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
         } else if (datas.get(position).getImgType() == 1) {
@@ -92,8 +103,6 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
             switch (type) {
                 case TYPE_ONE_IMG_LEFT:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_topline, parent, false);
-
-
                     holder = new ChosenViewHolder(convertView);
                     convertView.setTag(holder);
                     break;
@@ -104,20 +113,14 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                     break;
                 case TYPE_THREE_IMG:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_topline_three, parent, false);
-//                    int height = ScreenSizeUtil.getScreenHeight(context);
-//                    int width = ScreenSizeUtil.getScreenWidth(context);
-//                    ViewGroup.LayoutParams params = convertView.getLayoutParams();
-//                    params.height = height/5;
-//                    params.width = width/3;
-//                    convertView.setLayoutParams(params);
                     threeHolder = new ChosenThreeViewHolder(convertView);
                     convertView.setTag(threeHolder);
                     break;
-                case TYPE_HEAD_IMG:
-                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list, parent, false);
-                    headViewHolder = new ChosenHeadViewHolder(convertView);
-                    convertView.setTag(headViewHolder);
-                    break;
+//                case TYPE_HEAD_IMG:
+//                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list, parent, false);
+//                    headViewHolder = new ChosenHeadViewHolder(convertView);
+//                    convertView.setTag(headViewHolder);
+//                    break;
 
             }
         } else {
@@ -131,29 +134,80 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                 case TYPE_THREE_IMG:
                     threeHolder = (ChosenThreeViewHolder) convertView.getTag();
                     break;
-                case TYPE_HEAD_IMG:
-                    headViewHolder = (ChosenHeadViewHolder) convertView.getTag();
+//                case TYPE_HEAD_IMG:
+//                    headViewHolder = (ChosenHeadViewHolder) convertView.getTag();
             }
 
         }
 
         NewsEntertainmentBean.T1348648517839Bean bean = datas.get(position);
         if(bean!=null){
-
+            int wan = 0;
+            int qian = 0;
+            int bai = 0;
+            double replaycount = 0;
             switch (type) {
                 case TYPE_ONE_IMG_LEFT:
+
                     holder.titleTv.setText(bean.getTitle());
+                    if (!bean.getImgsrc().equals("")&& bean.getImgsrc() != null)
                     Picasso.with(context).load(bean.getImgsrc()).resize(width*1/4,height/8).into(holder.imgIv);
                     holder.sourceTv.setText(bean.getSource());
-                    holder.commentTv.setText(bean.getReplyCount()+"跟帖");
+//                    holder.commentTv.setText(bean.getReplyCount()+"跟帖");
+                    //===============================================================
+
+                    int count = bean.getReplyCount();
+                    if(count != 0 && count > 10000){
+                        wan = count/10000;
+                        qian = count%10000/1000;
+                        bai = count%10000%1000/100;
+                        if(bai >= 5){
+                           int rqian = qian + 1;
+                            if(rqian != 10){
+                                replaycount = wan + rqian*0.1;
+                                holder.commentTv.setText(replaycount+"万跟帖");
+                            }else {
+                                replaycount = wan+1;
+                                holder.commentTv.setText(replaycount+"万跟帖");
+                            }
+                        }
+
+                    }else {
+                        holder.commentTv.setText(count+"跟帖");
+                    }
+
+
+
+                    //===============================================================
                     break;
                 case TYPE_ONE_IMG:
                     oneHolder.titleTv.setText(bean.getTitle());
                     Picasso.with(context).load(bean.getImgsrc()).resize(width,height/4).into(oneHolder.imgIv);
                     oneHolder.sourceTv.setText(bean.getSource());
-                    if(bean.getReplyCount() != 0){
-                        oneHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
+                    //=================================================================
+                    int count2 = bean.getReplyCount();
+                    if(count2 != 0 && count2 > 10000){
+                        wan = count2/10000;
+                        qian = count2%10000/1000;
+                        bai = count2%10000%1000/100;
+                        if(bai >= 5){
+                            int rqian = qian + 1;
+                            if(rqian != 10){
+                                replaycount = wan + rqian*0.1;
+                                oneHolder.commentTv.setText(replaycount+"万跟帖");
+                            }else {
+                                replaycount = wan+1;
+                                oneHolder.commentTv.setText(replaycount+"万跟帖");
+                            }
+                        }
+
+                    }else {
+                        oneHolder.commentTv.setText(count2+"跟帖");
                     }
+
+                    //================================================================
+//                    oneHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
+
                     break;
                 case TYPE_THREE_IMG:
                     threeHolder.titleTv.setText(bean.getTitle());
@@ -166,10 +220,36 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                         Picasso.with(context).load(bean.getImgextra().get(1).getImgsrc()).resize(width/3,height/6).into(threeHolder.iv2);
                     }
                     threeHolder.sourceTv.setText(bean.getSource());
-                    threeHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
+                    //=================================================================
+                    int count1 = bean.getReplyCount();
+                    if(count1 != 0 && count1 > 10000){
+                        wan = count1/10000;
+                        qian = count1%10000/1000;
+                        bai = count1%10000%1000/100;
+                        if(bai >= 5){
+                            int rqian = qian + 1;
+                            if(rqian != 10){
+                                replaycount = wan + rqian*0.1;
+                                threeHolder.commentTv.setText(replaycount+"万跟帖");
+                            }else {
+                                replaycount = wan+1;
+                                threeHolder.commentTv.setText(replaycount+"万跟帖");
+                            }
+                        }
+
+                    }else {
+                        threeHolder.commentTv.setText(count1+"跟帖");
+                    }
+
+                    //================================================================
+//                    threeHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
                     break;
-                case TYPE_HEAD_IMG:
-                    Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
+//                case TYPE_HEAD_IMG:
+//                     if (!bean.getImgsrc().equals("")&& bean.getImgsrc() != null)
+//                     Picasso.with(context).load(bean.getImgsrc()).resize(width,height/3).into(headViewHolder.headImg);
+//                     headViewHolder.titleTv.setText(bean.getTitle());
+
+
             }
         }
 
@@ -235,9 +315,11 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
      */
     private class ChosenHeadViewHolder {
         ImageView headImg;
+        TextView titleTv;
 
         public ChosenHeadViewHolder(View view) {
             headImg = (ImageView) view.findViewById(R.id.head_list_img);
+            titleTv = (TextView) view.findViewById(R.id.head_list_title);
         }
     }
 

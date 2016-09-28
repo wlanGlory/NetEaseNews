@@ -1,5 +1,6 @@
 package com.wang.neteasenews.ui.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -26,7 +27,7 @@ import java.util.List;
  * Created by dllo on 16/9/8.
  * 新闻界面
  */
-public class NewsFragment extends AbsBaseFragment implements View.OnClickListener {
+public class NewsFragment extends AbsBaseFragment implements View.OnClickListener, PopupWindow.OnDismissListener {
     private TabLayout newsTl;
     private ViewPager newsVp;
     private NewsAdapter newsAdapter;
@@ -35,6 +36,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private RecyclerView recyclerView;
     private PopWindowAdapter popWindowAdapter;
     private List<String> list;
+    private PopupWindow pw;
 
     public static NewsFragment newInstance() {
 
@@ -56,24 +58,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         newsVp = byView(R.id.news_vp);
         newsPopWindow = byView(R.id.news_popwindow);
         newsPopWindow.setOnClickListener(this);
-
-
-//        newsTl.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                newsVp.setCurrentItem(tab.getPosition());
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
         datas = new ArrayList<>();
 
         datas.add(NewsTopLineFragment.newInstance());
@@ -122,21 +106,21 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.news_popwindow:
                 createWindow();
+                newsPopWindow.setImageResource(R.mipmap.icon_up);
+                newsPopWindow.setColorFilter(Color.RED);
+                pw.setOnDismissListener(this);
                 break;
         }
     }
 // 弹出窗口
     private void createWindow() {
-
-        PopupWindow pw = new PopupWindow(getContext());
+        pw = new PopupWindow(getContext());
         pw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-        pw.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-
+        pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         View v = LayoutInflater.from(context).inflate(R.layout.popwindow_layout,null);
-
         pw.setContentView(v);
+//      pw.setBackgroundDrawable(null);
         pw.setFocusable(true);
-
         pw.showAsDropDown(newsPopWindow);
         recyclerView = (RecyclerView) v.findViewById(R.id.popw_rv);
         popWindowAdapter = new PopWindowAdapter(context);
@@ -145,12 +129,26 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         recyclerView.setLayoutManager(glm);
 
         list = new ArrayList<>();
-        for (int i = 0; i <64 ; i++) {
-            list.add("测试"+i);
-        }
+        list.add("头条");
+        list.add("精选");
+        list.add("娱乐");
+        list.add("体育");
+        list.add("网易号");
+        list.add("财经");
+        list.add("科技");
+        list.add("汽车");
+        list.add("时尚");
+        list.add("热点");
+        list.add("军事");
         popWindowAdapter.setDatas(list);
 
 
 
+    }
+
+    @Override
+    public void onDismiss() {
+        newsPopWindow.setImageResource(R.mipmap.icon_down);
+        newsPopWindow.setColorFilter(Color.BLACK);
     }
 }

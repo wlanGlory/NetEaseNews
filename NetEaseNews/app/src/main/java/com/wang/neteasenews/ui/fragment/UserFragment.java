@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class UserFragment extends AbsBaseFragment {
     private List<UserBean> datas;
-    private UserAdapter userAdpter;
-    private ListView listView;
+//    private UserAdapter userAdpter;
+//    private ListView listView;
 
     public static UserFragment newInstance() {
 
@@ -31,14 +31,14 @@ public class UserFragment extends AbsBaseFragment {
 
     @Override
     protected int setLayout() {
-        return R.layout.fragment_user;
+        return R.layout.fragment_person;
 
     }
 
     @Override
     protected void initViews() {
-        listView = byView(R.id.user_listview);
-        buildDatas();
+//        listView = byView(R.id.user_listview);
+//        buildDatas();
     }
 
     private void buildDatas() {
@@ -55,9 +55,9 @@ public class UserFragment extends AbsBaseFragment {
 
     @Override
     protected void initDatas() {
-        userAdpter = new UserAdapter(NetEaseNewsApp.getContext());
-        userAdpter.setDatas(datas);
-        listView.setAdapter(userAdpter);
+//        userAdpter = new UserAdapter(NetEaseNewsApp.getContext());
+//        userAdpter.setDatas(datas);
+//        listView.setAdapter(userAdpter);
 
 
     }

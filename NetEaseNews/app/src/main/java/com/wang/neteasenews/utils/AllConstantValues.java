@@ -9,7 +9,8 @@ public  class AllConstantValues {
     /**
      * 新闻界面娱乐url
      */
-    public static final String ENTERTAINMENTURL = "http://c.3g.163.com/nc/article/list/T1348648517839/0-20.html";
+    public static final String ENTERTAINMENTURL_LEFT = "http://c.3g.163.com/nc/article/list/T1348648517839/";
+    public static final String RIGHT = ".html";
     /**
      * 新闻界面精选url
      */
@@ -48,5 +49,12 @@ public  class AllConstantValues {
      * 话题界面问吧url
      */
     public static final String TOPICQUESTIONURL = "http://c.3g.163.com/newstopic/list/expert/YWxs/0-10.html";
-
+    /**
+     * 话题界面问吧分类url
+     */
+    public static final String TOPICQUESTIONCLASSIFICATIONURL = "http://c.3g.163.com/newstopic/list/classification.html";
+    /**
+     * 话题界面话题ViewPager的url
+     */
+    public static final String TOPICTOPICVIEWPAGERURL = "http://c.3g.163.com/recommend/getChanRecomNews?channel=T1460094487214&size=5&passport=&devId=44t6%2B5mG3ACAOlQOCLuIHg%3D%3D&lat=&lon=&version=15.0&net=wifi&ts=1475041423&sign=%2Fzk36HcAsLNLPaU4ZDlIcrgQ42C8ClBEKkxZd9gyb3x48ErR02zJ6%2FKXOnxX046I&encryption=1&canal=netease_gw&mac=3Fg2bhJMR1xtVeOmVPRkSIe1A3IUPLLdoCiqBVf2Go0%3D";
 }

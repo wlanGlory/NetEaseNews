@@ -2,79 +2,277 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+
     android:orientation="vertical">
+
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorTabSelected"
-      >
+        android:background="@color/colorTabSelected">
+
         <TextView
             android:id="@+id/me_setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
             android:drawableLeft="@mipmap/setting"
             android:text="设置"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textColor="#fff" />
+
         <Button
             android:id="@+id/me_login_btn"
-            android:background="@null"
-            android:layout_below="@id/me_setting_tv"
-            android:text="登录"
-            android:textColor="@color/colorTabSelected"
             android:layout_width="150dp"
-            android:layout_height="30dp" />
+            android:layout_height="30dp"
+            android:layout_below="@id/me_setting_tv"
+
+            android:layout_marginLeft="10dp"
+            android:background="#fff"
+            android:text="登录"
+            android:textColor="@color/colorTabSelected" />
+
         <TextView
             android:id="@+id/me_no_account_tv"
-            android:text="没有账号?手机号快速登录>"
-            android:layout_marginTop="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@id/me_setting_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="7dp"
+            android:text="没有账号?手机号快速登录>"
+            android:textColor="#fff" />
 
         <LinearLayout
-            android:layout_below="@id/me_login_btn"
+            android:id="@+id/middle_ll"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/me_login_btn"
             android:layout_margin="10dp"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/me_wechat_login_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableLeft="@mipmap/ic_launcher"
-                android:layout_width="0dp"
-                android:text="微信登录"
                 android:gravity="center_vertical"
-                android:layout_height="wrap_content" />
+                android:text="微信登录"
+                android:textColor="#fff" />
+
             <TextView
                 android:id="@+id/me_microblog_login_tv"
-
-                android:layout_toRightOf="@id/me_wechat_login_tv"
-                android:drawableLeft="@mipmap/ic_launcher"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/me_wechat_login_tv"
                 android:layout_weight="1"
-                android:text="微博登录"
+                android:drawableLeft="@mipmap/ic_launcher"
                 android:gravity="center_vertical"
-                android:layout_height="wrap_content" />
+                android:text="微博登录"
+                android:textColor="#fff" />
+
             <TextView
                 android:id="@+id/me_qq_login_tv"
-                android:layout_weight="1"
-                android:layout_toRightOf="@id/me_microblog_login_tv"
-                android:drawableLeft="@mipmap/ic_launcher"
                 android:layout_width="0dp"
-                android:text="QQ登录"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/me_microblog_login_tv"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/ic_launcher"
                 android:gravity="center_vertical"
-                android:layout_height="wrap_content" />
+                android:text="QQ登录"
+                android:textColor="#fff" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/middle1_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/middle_ll"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:text="我关注的" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#fff"
+                android:text="我的粉丝" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/read"
+            android:text="阅读" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#d6cece" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/collection"
+            android:text="收藏" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#d6cece" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/comment"
+            android:text="跟帖" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#d6cece" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/money"
+            android:text="金币" />
+
+
+    </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:layout_marginLeft="15dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="45445"/>
+
+
+
+
 
 
         </LinearLayout>
 
 
 
-
-    </RelativeLayout>
-
+    </ScrollView>
+    </LinearLayout>
 
 
 </LinearLayout>

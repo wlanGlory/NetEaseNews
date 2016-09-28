@@ -9,6 +9,8 @@
     <TextView
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:textColor="#000"
+        android:textSize="15sp"
         android:id="@+id/topline_three_title"
         android:layout_width="wrap_content"
         android:text="123"
@@ -29,6 +31,8 @@
             android:layout_weight="1"
             android:id="@+id/topline_three_img1"
             android:layout_width="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"/>
         <ImageView

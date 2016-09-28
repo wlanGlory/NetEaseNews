@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.NewsChosenBean;
@@ -56,6 +57,10 @@ public class NewsSportsAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
+//        if(datas.get(position).getOrder() == 1){
+//            return TYPE_HEAD_IMG;
+//        }
+//        else
         if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
 //            Log.d("zzz", "三张图片");
             return TYPE_THREE_IMG;
@@ -83,7 +88,7 @@ public class NewsSportsAdapter extends BaseAdapter {
         ChosenViewHolder holder = null;
         ChosenOneViewHolder oneHolder = null;
         ChosenThreeViewHolder threeHolder = null;
-
+//        ChosenHeadViewHolder chosenHeadViewHolder = null;
         int type = getItemViewType(position);
         if (convertView == null) {
             switch (type) {
@@ -102,6 +107,12 @@ public class NewsSportsAdapter extends BaseAdapter {
                     threeHolder = new ChosenThreeViewHolder(convertView);
                     convertView.setTag(threeHolder);
                     break;
+//                // ===============================================================================
+//                case TYPE_HEAD_IMG:
+//                    convertView = LayoutInflater.from(context).inflate(R.layout.head_list,parent,false);
+//                    chosenHeadViewHolder = new ChosenHeadViewHolder(convertView);
+//                    convertView.setTag(chosenHeadViewHolder);
+//                    break;
 
 
             }
@@ -116,6 +127,9 @@ public class NewsSportsAdapter extends BaseAdapter {
                 case TYPE_THREE_IMG:
                     threeHolder = (ChosenThreeViewHolder) convertView.getTag();
                     break;
+//                case TYPE_HEAD_IMG:
+//                    chosenHeadViewHolder = (ChosenHeadViewHolder) convertView.getTag();
+//                    break;
             }
 
         }
@@ -149,6 +163,12 @@ public class NewsSportsAdapter extends BaseAdapter {
                 threeHolder.sourceTv.setText(bean.getSource());
                 threeHolder.commentTv.setText(bean.getReplyCount()+"跟帖");
                 break;
+//            case TYPE_HEAD_IMG:
+//                chosenHeadViewHolder.titleTv.setText(bean.getTitle());
+//                if (!bean.getImgsrc().equals("")&& bean.getImgsrc() != null) {
+//                    Glide.with(context).load(bean.getImgsrc()).into(chosenHeadViewHolder.headImg);
+//                }
+
         }
 
 
@@ -214,9 +234,11 @@ public class NewsSportsAdapter extends BaseAdapter {
      */
     private class ChosenHeadViewHolder {
         ImageView headImg;
+        TextView titleTv;
 
         public ChosenHeadViewHolder(View view) {
-            headImg = (ImageView) view.findViewById(R.id.topline_two_img);
+            titleTv = (TextView) view.findViewById(R.id.head_list_title);
+            headImg = (ImageView) view.findViewById(R.id.head_list_img);
         }
     }
 
