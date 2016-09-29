@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     >
 
 
@@ -13,19 +14,19 @@
         android:id="@+id/live_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginLeft="@dimen/live_title_margin_left"
+        android:gravity="center"
         android:layout_marginTop="@dimen/live_title_margin_top"
-        android:text="123465" />
+         />
 
     <ImageView
         android:id="@+id/live_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/live_title"
-        android:layout_marginTop="@dimen/live_img_margin_top"
-        android:layout_marginLeft="@dimen/live_img_margin_left"
-        android:layout_marginRight="@dimen/live_img_margin_right"
+        android:layout_marginTop="-25dp"
+
+        android:layout_marginBottom="3dp"
+
         android:src="@mipmap/ic_launcher" />
 
     <TextView
@@ -34,9 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/live_img"
-        android:layout_marginLeft="@dimen/live_source_margin_left"
+
         android:textColor="#fff"
-        android:text="123" />
+         />
 
 
     <ImageView
@@ -48,7 +49,7 @@
         android:layout_marginRight="@dimen/live_video_margin_right"
         android:layout_marginBottom="@dimen/live_video_margin_bottom"
         android:layout_marginTop="@dimen/live_video_margin_top"
-        android:src="@mipmap/pull_down"
+
         />
 
     <TextView

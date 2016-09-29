@@ -21,7 +21,7 @@ import java.util.List;
 public class PopWindowAdapter extends RecyclerView.Adapter<PopWindowAdapter.PopViewHolder>{
     private Context context;
     private List<String> datas;
-    private TabLayout newsTl;
+
     //=================================================================
     // 定义长按点击接口对象
     private OnRvItemLongClick onRvItemLongClick;

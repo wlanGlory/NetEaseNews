@@ -80,8 +80,8 @@ public class NewsChosenFragment extends AbsBaseFragment {
             }
         });
 
-
-        VolleyInstance.getInstance().setRequset(AllConstantValues.CHOSENURL, new VolleyResult() {
+        String range  = "0-20";
+        VolleyInstance.getInstance().setRequset(AllConstantValues.CHOSENURL_LEFT + range + AllConstantValues.RIGHT, new VolleyResult() {
             @Override
             public void success(String resultStr) {
 

@@ -71,12 +71,12 @@ public class LiveAdapter extends BaseAdapter {
         LiveBean.T1462958418713Bean bean = datas.get(position);
 //        LiveBean.T1462958418713Bean.LiveInfoBean infoBean = datasInfo.get(position);
         if (bean != null) {
-            holder.titleTv.setText(bean.getTitle());
+//            holder.titleTv.setText(bean.getTitle());
 
             Picasso.with(context).load(bean.getImgsrc()).resize(width,height/4).into(holder.imgIv);
             holder.sourceTv.setText(bean.getSource());
             holder.tagTv.setText(bean.getTAGS());
-            holder.ptimeTv.setText(bean.getSkipType());
+//            holder.ptimeTv.setText(bean.getSkipType());
         }
         return convertView;
     }

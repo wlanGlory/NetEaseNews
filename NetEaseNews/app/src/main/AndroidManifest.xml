@@ -20,6 +20,7 @@
         <activity android:name=".ui.activity.NewsChosenInfoActivity">
 
         </activity>
+        <activity android:name=".ui.activity.LoginInfoActivtiy"/>
 
     </application>
 

@@ -18,21 +18,30 @@
             app:tabSelectedTextColor="@color/colorTopicTabSelected"
             app:tabTextColor="@color/colorTabNormal">
         </android.support.design.widget.TabLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/topic_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/topic_img1_margin_left"
-            android:src="@mipmap/topic_search" />
-        <ImageView
-            android:id="@+id/topic_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/topic_img2_margin_left"
-            android:src="@mipmap/icon_me" />
+            <ImageView
+                android:id="@+id/topic_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:src="@mipmap/icon_me" />
+
+            <ImageView
+                android:id="@+id/topic_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/topic_login"
+                android:layout_marginRight="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/topic_search" />
+        </RelativeLayout>
+
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

@@ -141,6 +141,7 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
         }
 
         NewsEntertainmentBean.T1348648517839Bean bean = datas.get(position);
+//        NewsEntertainmentBean.T1348648517839Bean list = datas.get(position-1);
         if(bean!=null){
             int wan = 0;
             int qian = 0;
@@ -172,6 +173,9 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                             }
                         }
 
+                    }else if (count==0){
+                        holder.commentTv.setText("");
+
                     }else {
                         holder.commentTv.setText(count+"跟帖");
                     }
@@ -201,6 +205,8 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                             }
                         }
 
+                    }else if(count2 == 0){
+                        oneHolder.commentTv.setText("");
                     }else {
                         oneHolder.commentTv.setText(count2+"跟帖");
                     }
@@ -237,6 +243,8 @@ public class NewsEntertainmentAdapter extends BaseAdapter {
                             }
                         }
 
+                    }else if (count1==0){
+                        threeHolder.commentTv.setText("");
                     }else {
                         threeHolder.commentTv.setText(count1+"跟帖");
                     }

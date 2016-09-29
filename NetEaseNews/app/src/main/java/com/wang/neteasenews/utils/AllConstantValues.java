@@ -14,7 +14,8 @@ public  class AllConstantValues {
     /**
      * 新闻界面精选url
      */
-    public static final String CHOSENURL = "http://c.3g.163.com/nc/article/list/T1467284926140/0-20.html";
+    public static final String CHOSENURL_LEFT = "http://c.3g.163.com/nc/article/list/T1467284926140/";
+
     /**
      * 精选详情页url
      */
@@ -39,7 +40,6 @@ public  class AllConstantValues {
      * 新闻界面头条url
      */
     public static final String TOPLINEURL = "http://c.3g.163.com/recommend/getSubDocPic?tid=T1348647909107&from=toutiao&size=20&prog=NOHEAD&offset=0&fn=2&passport=&devId=44t6%2B5mG3ACAOlQOCLuIHg%3D%3D&lat=&lon=&version=14.2&net=wifi&ts=1473231158&sign=5GqzD5yFT920iQKTNOyR3MwCzQuzy%2Buhs6NuDA7CsyF48ErR02zJ6%2FKXOnxX046I&encryption=1&canal=wandoujia_news&mac=";
-
 
     /**
      * 话题界面话题url

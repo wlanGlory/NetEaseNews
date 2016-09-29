@@ -32,7 +32,7 @@ public class TopicTopicAdapter extends BaseAdapter {
         this.context =context;
         inflater = LayoutInflater.from(context);
     }
-
+ // int a = 3
     public void setDatas(List<TopicTopicBean.DataBean.SubjectListBean> datas) {
         this.datas = datas;
         notifyDataSetChanged();

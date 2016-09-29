@@ -8,13 +8,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
 import com.wang.neteasenews.R;
+import com.wang.neteasenews.interfaces.OnRvItemClick;
 import com.wang.neteasenews.ui.adapter.NewsAdapter;
 import com.wang.neteasenews.ui.adapter.NewsEntertainmentAdapter;
 import com.wang.neteasenews.ui.adapter.PopWindowAdapter;
@@ -73,8 +76,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         datas.add(NewsChosenFragment.newInstance());
 
 
-
-
     }
 
     @Override
@@ -112,20 +113,32 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
                 break;
         }
     }
-// 弹出窗口
+
+    // 弹出窗口
     private void createWindow() {
         pw = new PopupWindow(getContext());
         pw.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        View v = LayoutInflater.from(context).inflate(R.layout.popwindow_layout,null);
+        View v = LayoutInflater.from(context).inflate(R.layout.popwindow_layout, null);
         pw.setContentView(v);
-//      pw.setBackgroundDrawable(null);
+        // 去掉PopWindow弹出窗口的边框颜色
+        pw.setBackgroundDrawable(null);
         pw.setFocusable(true);
+        pw.isOutsideTouchable();
         pw.showAsDropDown(newsPopWindow);
+        // 设置弹出窗口布局的点击事件来控制PopWindow点击其他地方消失
+        v.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                pw.dismiss();
+                return false;
+            }
+        });
+
         recyclerView = (RecyclerView) v.findViewById(R.id.popw_rv);
         popWindowAdapter = new PopWindowAdapter(context);
         recyclerView.setAdapter(popWindowAdapter);
-        GridLayoutManager glm = new GridLayoutManager(context,4);
+        GridLayoutManager glm = new GridLayoutManager(context, 4);
         recyclerView.setLayoutManager(glm);
 
         list = new ArrayList<>();
@@ -141,7 +154,19 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         list.add("热点");
         list.add("军事");
         popWindowAdapter.setDatas(list);
+        // ============recyclerview中行点击事件==================
+        popWindowAdapter.setOnRvItemClick(new OnRvItemClick() {
+            @Override
+            public void onRvItemClickListener(int position, String str) {
+                Log.d("NewsFragment", str);
 
+
+                newsTl.getTabAt(position).select();
+                pw.dismiss();
+
+
+            }
+        });
 
 
     }

@@ -1,22 +1,28 @@
 package com.wang.neteasenews.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.wang.neteasenews.R;
 import com.wang.neteasenews.model.bean.UserBean;
+import com.wang.neteasenews.ui.activity.LoginInfoActivtiy;
 import com.wang.neteasenews.ui.adapter.UserAdapter;
 import com.wang.neteasenews.ui.app.NetEaseNewsApp;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by dllo on 16/9/8.
  * 用户中心(我)界面
  */
-public class UserFragment extends AbsBaseFragment {
+public class UserFragment extends AbsBaseFragment implements View.OnClickListener {
     private List<UserBean> datas;
+    private Button loginBtn;
 //    private UserAdapter userAdpter;
 //    private ListView listView;
 
@@ -39,6 +45,8 @@ public class UserFragment extends AbsBaseFragment {
     protected void initViews() {
 //        listView = byView(R.id.user_listview);
 //        buildDatas();
+        loginBtn = byView(R.id.user_login_btn);
+        loginBtn.setOnClickListener(this);
     }
 
     private void buildDatas() {
@@ -60,5 +68,14 @@ public class UserFragment extends AbsBaseFragment {
 //        listView.setAdapter(userAdpter);
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.user_login_btn:
+                startActivity(new Intent(getContext(), LoginInfoActivtiy.class));
+                break;
+        }
     }
 }
