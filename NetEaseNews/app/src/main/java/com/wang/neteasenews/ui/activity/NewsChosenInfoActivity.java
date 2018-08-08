@@ -27,6 +27,8 @@ import java.util.List;
 /**
  * Created by dllo on 16/9/22.
  * 新闻界面精选详情页
+ *
+ * hello
  */
 public class NewsChosenInfoActivity extends AbsBaseActivity {
     //    private String CHOSEN_INFOURL = "http://c.3g.163.com/nc/article/C1HD4ND1000146BE/full.html";
